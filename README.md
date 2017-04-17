@@ -3,8 +3,8 @@
 
 ## libmccr
 
-`libmccr` is a small **C library** that allows controlling MagTek credit card
-readers in HID mode.
+`libmccr` is a small **[C library](https://aleksander0m.github.io/mccr/)** that
+allows controlling MagTek credit card readers in HID mode.
 
 ## mccr-cli
 
@@ -18,6 +18,10 @@ output.
 information support, including track data decryption if the Base Derivation Key
 is known. The program also allows performing device setting changes and key
 updates using MagTek's 'Magensa' remote service system.
+
+The decryption support requires the
+**[libdukpt](https://github.com/aleksander0m/libdukpt)**
+library.
 
 ## License
 
