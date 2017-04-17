@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Swipe reports: libmccr Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="libmccr Reference Manual">
+<link rel="up" href="pt02.html" title="Part II. MCCR device">
+<link rel="prev" href="libmccr-Generic-device-commands.html" title="Generic device commands">
+<link rel="next" href="ix01.html" title="API Index">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libmccr-Swipe-reports.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pt02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libmccr-Generic-device-commands.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="ix01.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libmccr-Swipe-reports"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libmccr-Swipe-reports.top_of_page"></a>Swipe reports</span></h2>
+<p>Swipe reports — Methods to read and process swipe reports.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libmccr-Swipe-reports.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-free" title="mccr_swipe_report_free ()">mccr_swipe_report_free</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-decode-status" title="mccr_swipe_report_get_track_1_decode_status ()">mccr_swipe_report_get_track_1_decode_status</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-decode-status" title="mccr_swipe_report_get_track_2_decode_status ()">mccr_swipe_report_get_track_2_decode_status</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-decode-status" title="mccr_swipe_report_get_track_3_decode_status ()">mccr_swipe_report_get_track_3_decode_status</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data-length" title="mccr_swipe_report_get_track_1_encrypted_data_length ()">mccr_swipe_report_get_track_1_encrypted_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data-length" title="mccr_swipe_report_get_track_2_encrypted_data_length ()">mccr_swipe_report_get_track_2_encrypted_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data-length" title="mccr_swipe_report_get_track_3_encrypted_data_length ()">mccr_swipe_report_get_track_3_encrypted_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-absolute-data-length" title="mccr_swipe_report_get_track_1_absolute_data_length ()">mccr_swipe_report_get_track_1_absolute_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-absolute-data-length" title="mccr_swipe_report_get_track_2_absolute_data_length ()">mccr_swipe_report_get_track_2_absolute_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-absolute-data-length" title="mccr_swipe_report_get_track_3_absolute_data_length ()">mccr_swipe_report_get_track_3_absolute_data_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data" title="mccr_swipe_report_get_track_1_encrypted_data ()">mccr_swipe_report_get_track_1_encrypted_data</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data" title="mccr_swipe_report_get_track_2_encrypted_data ()">mccr_swipe_report_get_track_2_encrypted_data</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data" title="mccr_swipe_report_get_track_3_encrypted_data ()">mccr_swipe_report_get_track_3_encrypted_data</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-to-string" title="mccr_card_encode_type_to_string ()">mccr_card_encode_type_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-get-card-encode-type" title="mccr_swipe_report_get_card_encode_type ()">mccr_swipe_report_get_card_encode_type</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Swipe-reports.html#mccr-device-wait-swipe-report" title="mccr_device_wait_swipe_report ()">mccr_device_wait_swipe_report</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Swipe-reports.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t">mccr_swipe_report_t</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-track-decode-status-t" title="enum mccr_swipe_track_decode_status_t">mccr_swipe_track_decode_status_t</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t">mccr_card_encode_type_t</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Swipe-reports.description"></a><h2>Description</h2>
+<p>This section defines methods to read and process swipe reports generated when
+the user swipes a credit card in the reader.</p>
+<div class="example">
+<a name="id-1.3.5.5.3"></a><p class="title"><b>Example 4. Reading and processing a swipe report</b></p>
+<div class="example-contents">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">mccr_status_t</span><span class="normal">        st</span><span class="symbol">;</span>
+<span class="usertype">mccr_swipe_report_t</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">swipe_report</span><span class="symbol">;</span>
+<span class="usertype">uint8_t</span><span class="normal">              track_length</span><span class="symbol">;</span>
+
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Swipe-reports.html#mccr-device-wait-swipe-report">mccr_device_wait_swipe_report</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">device</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">swipe_report</span><span class="symbol">))</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">fprintf</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">stderr</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"error: cannot get swipe report: %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="libmccr-Core-library-operations.html#mccr-status-to-string">mccr_status_to_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">st</span><span class="symbol">));</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
+
+<span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"swipe detected</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data-length">mccr_swipe_report_get_track_1_encrypted_data_length</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">swipe_report</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">track_length</span><span class="symbol">))</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"  %u bytes detected in track 1</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> track_length</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data-length">mccr_swipe_report_get_track_2_encrypted_data_length</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">swipe_report</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">track_length</span><span class="symbol">))</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"  %u bytes detected in track 2</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> track_length</span><span class="symbol">);</span>
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data-length">mccr_swipe_report_get_track_3_encrypted_data_length</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">swipe_report</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">track_length</span><span class="symbol">))</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span>
+<span class="normal">  </span><span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"  %u bytes detected in track 3</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> track_length</span><span class="symbol">);</span>
+
+<span class="function"><a href="libmccr-Swipe-reports.html#mccr-swipe-report-free">mccr_swipe_report_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">swipe_report</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break">
+</div>
+<div class="refsect1">
+<a name="libmccr-Swipe-reports.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="mccr-swipe-report-free"></a><h3>mccr_swipe_report_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+mccr_swipe_report_free (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>);</pre>
+<p>Frees a swipe report obtained with <a class="link" href="libmccr-Swipe-reports.html#mccr-device-wait-swipe-report" title="mccr_device_wait_swipe_report ()"><code class="function">mccr_device_wait_swipe_report()</code></a>.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-free.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-1-decode-status"></a><h3>mccr_swipe_report_get_track_1_decode_status ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_1_decode_status
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_status</code></em>);</pre>
+<p>Gets the track 1 decode status.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-decode-status.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_status</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with a bitmask of <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-track-decode-status-t" title="enum mccr_swipe_track_decode_status_t"><span class="type">mccr_swipe_track_decode_status_t</span></a> values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-decode-status.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-2-decode-status"></a><h3>mccr_swipe_report_get_track_2_decode_status ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_2_decode_status
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_status</code></em>);</pre>
+<p>Gets the track 2 decode status.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-decode-status.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_status</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with a bitmask of <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-track-decode-status-t" title="enum mccr_swipe_track_decode_status_t"><span class="type">mccr_swipe_track_decode_status_t</span></a> values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-decode-status.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-3-decode-status"></a><h3>mccr_swipe_report_get_track_3_decode_status ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_3_decode_status
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_status</code></em>);</pre>
+<p>Gets the track 3 decode status.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-decode-status.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_status</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with a bitmask of <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-track-decode-status-t" title="enum mccr_swipe_track_decode_status_t"><span class="type">mccr_swipe_track_decode_status_t</span></a> values.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-decode-status.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-1-encrypted-data-length"></a><h3>mccr_swipe_report_get_track_1_encrypted_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_1_encrypted_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the encrypted data length in track 1.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-encrypted-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-encrypted-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-2-encrypted-data-length"></a><h3>mccr_swipe_report_get_track_2_encrypted_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_2_encrypted_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the encrypted data length in track 2.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-encrypted-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-encrypted-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-3-encrypted-data-length"></a><h3>mccr_swipe_report_get_track_3_encrypted_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_3_encrypted_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the encrypted data length in track 3.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-encrypted-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-encrypted-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-1-absolute-data-length"></a><h3>mccr_swipe_report_get_track_1_absolute_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_1_absolute_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the absolute data length in track 1.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-absolute-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-absolute-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-2-absolute-data-length"></a><h3>mccr_swipe_report_get_track_2_absolute_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_2_absolute_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the absolute data length in track 2.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-absolute-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-absolute-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-3-absolute-data-length"></a><h3>mccr_swipe_report_get_track_3_absolute_data_length ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_3_absolute_data_length
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><span class="type">uint8_t</span> *out_length</code></em>);</pre>
+<p>Gets the absolute data length in track 3.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-absolute-data-length.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_length</p></td>
+<td class="parameter_description"><p>output location for a <span class="type">uint8_t</span> with the length.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-absolute-data-length.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-1-encrypted-data"></a><h3>mccr_swipe_report_get_track_1_encrypted_data ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_1_encrypted_data
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code>const <span class="type">uint8_t</span> **out_data</code></em>);</pre>
+<p>Gets the encrypted data in track 1.</p>
+<p>The returned <em class="parameter"><code>out_data</code></em>
+ is constant and shouldn't be modified by the user.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-encrypted-data.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_data</p></td>
+<td class="parameter_description"><p>output location for a pointer to the encrypted data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-1-encrypted-data.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-2-encrypted-data"></a><h3>mccr_swipe_report_get_track_2_encrypted_data ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_2_encrypted_data
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code>const <span class="type">uint8_t</span> **out_data</code></em>);</pre>
+<p>Gets the encrypted data in track 2.</p>
+<p>The returned <em class="parameter"><code>out_data</code></em>
+ is constant and shouldn't be modified by the user.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-encrypted-data.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_data</p></td>
+<td class="parameter_description"><p>output location for a pointer to the encrypted data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-2-encrypted-data.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-track-3-encrypted-data"></a><h3>mccr_swipe_report_get_track_3_encrypted_data ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_track_3_encrypted_data
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code>const <span class="type">uint8_t</span> **out_data</code></em>);</pre>
+<p>Gets the encrypted data in track 3.</p>
+<p>The returned <em class="parameter"><code>out_data</code></em>
+ is constant and shouldn't be modified by the user.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-encrypted-data.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_data</p></td>
+<td class="parameter_description"><p>output location for a pointer to the encrypted data.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-track-3-encrypted-data.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-card-encode-type-to-string"></a><h3>mccr_card_encode_type_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+mccr_card_encode_type_to_string (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t"><span class="type">mccr_card_encode_type_t</span></a> value</code></em>);</pre>
+<p>Gets a description for the given <a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t"><span class="type">mccr_card_encode_type_t</span></a>.</p>
+<div class="refsect3">
+<a name="mccr-card-encode-type-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t"><span class="type">mccr_card_encode_type_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-card-encode-type-to-string.returns"></a><h4>Returns</h4>
+<p> a constant string.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-report-get-card-encode-type"></a><h3>mccr_swipe_report_get_card_encode_type ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_swipe_report_get_card_encode_type
+                               (<em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> *report</code></em>,
+                                <em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t"><span class="type">mccr_card_encode_type_t</span></a> *out</code></em>);</pre>
+<p>Gets the encrypted data in track 3.</p>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-card-encode-type.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>report</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Swipe-reports.html#mccr-card-encode-type-t" title="enum mccr_card_encode_type_t"><span class="type">mccr_card_encode_type_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-swipe-report-get-card-encode-type.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-wait-swipe-report"></a><h3>mccr_device_wait_swipe_report ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_wait_swipe_report (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                               <em class="parameter"><code><span class="type">int</span> timeout_ms</code></em>,
+                               <em class="parameter"><code><a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a> **out_swipe_report</code></em>);</pre>
+<p>Waits for a swipe report sent by the device. Blocks during the wait. A
+negative <em class="parameter"><code>timeout_ms</code></em>
+ may be given to disable the timeout and wait forever.</p>
+<p>When no longer needed, <em class="parameter"><code>out_swipe_report</code></em>
+ should be disposed with <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-free" title="mccr_swipe_report_free ()"><code class="function">mccr_swipe_report_free()</code></a>.</p>
+<div class="refsect3">
+<a name="mccr-device-wait-swipe-report.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>timeout_ms</p></td>
+<td class="parameter_description"><p>timeout to wait for a swipe report, in milliseconds.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_swipe_report</p></td>
+<td class="parameter_description"><p>output location to store the newly allocated <a class="link" href="libmccr-Swipe-reports.html#mccr-swipe-report-t" title="mccr_swipe_report_t"><span class="type">mccr_swipe_report_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Swipe-reports.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="mccr-swipe-report-t"></a><h3>mccr_swipe_report_t</h3>
+<pre class="programlisting">typedef struct mccr_swipe_report_s mccr_swipe_report_t;
+</pre>
+<p>Opaque type representing a swipe report.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-swipe-track-decode-status-t"></a><h3>enum mccr_swipe_track_decode_status_t</h3>
+<p>Flags specifying the status of the decoding in a given track.</p>
+<div class="refsect3">
+<a name="mccr-swipe-track-decode-status-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SWIPE-TRACK-DECODE-STATUS-SUCCESS:CAPS"></a>MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS</p></td>
+<td class="enum_member_description">
+<p>Success.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SWIPE-TRACK-DECODE-STATUS-ERROR:CAPS"></a>MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR</p></td>
+<td class="enum_member_description">
+<p>Decoding error.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-card-encode-type-t"></a><h3>enum mccr_card_encode_type_t</h3>
+<p>Type of encoding found in the card.</p>
+<div class="refsect3">
+<a name="mccr-card-encode-type-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-ISO-ABA:CAPS"></a>MCCR_CARD_ENCODE_TYPE_ISO_ABA</p></td>
+<td class="enum_member_description">
+<p>ISO/ABA encode format.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-AAMVA:CAPS"></a>MCCR_CARD_ENCODE_TYPE_AAMVA</p></td>
+<td class="enum_member_description">
+<p>AAMVA encode format.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-RESERVED:CAPS"></a>MCCR_CARD_ENCODE_TYPE_RESERVED</p></td>
+<td class="enum_member_description">
+<p>Reserved.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-BLANK:CAPS"></a>MCCR_CARD_ENCODE_TYPE_BLANK</p></td>
+<td class="enum_member_description">
+<p>Blank.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-OTHER:CAPS"></a>MCCR_CARD_ENCODE_TYPE_OTHER</p></td>
+<td class="enum_member_description">
+<p>Other. Non standard track format.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-UNDETERMINED:CAPS"></a>MCCR_CARD_ENCODE_TYPE_UNDETERMINED</p></td>
+<td class="enum_member_description">
+<p>Couldn't be determined.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-CARD-ENCODE-TYPE-NONE:CAPS"></a>MCCR_CARD_ENCODE_TYPE_NONE</p></td>
+<td class="enum_member_description">
+<p>No decoding has occurred.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25.1</div>
+</body>
+</html>

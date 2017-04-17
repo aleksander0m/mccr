@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Generic device commands: libmccr Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="libmccr Reference Manual">
+<link rel="up" href="pt02.html" title="Part II. MCCR device">
+<link rel="prev" href="libmccr-Device-state.html" title="Device state">
+<link rel="next" href="libmccr-Swipe-reports.html" title="Swipe reports">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libmccr-Generic-device-commands.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pt02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libmccr-Device-state.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libmccr-Swipe-reports.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libmccr-Generic-device-commands"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libmccr-Generic-device-commands.top_of_page"></a>Generic device commands</span></h2>
+<p>Generic device commands — Methods to run generic commands on the device state.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libmccr-Generic-device-commands.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody><tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Generic-device-commands.html#mccr-device-run-generic" title="mccr_device_run_generic ()">mccr_device_run_generic</a> <span class="c_punctuation">()</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Generic-device-commands.description"></a><h2>Description</h2>
+<p>This section defines methods to query the current device state.</p>
+</div>
+<div class="refsect1">
+<a name="libmccr-Generic-device-commands.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="mccr-device-run-generic"></a><h3>mccr_device_run_generic ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_run_generic (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                         <em class="parameter"><code><span class="type">uint8_t</span> command_id</code></em>,
+                         <em class="parameter"><code>const <span class="type">uint8_t</span> *blob</code></em>,
+                         <em class="parameter"><code><span class="type">size_t</span> blob_size</code></em>,
+                         <em class="parameter"><code><span class="type">uint8_t</span> **out_blob</code></em>,
+                         <em class="parameter"><code><span class="type">size_t</span> *out_blob_size</code></em>);</pre>
+<p>Run a generic command in the device.</p>
+<p>If the command is privileged, <em class="parameter"><code>blob</code></em>
+ and <em class="parameter"><code>blob_size</code></em>
+ should include the
+trailing MAC.</p>
+<p>E.g. if the command to run is '01:06:10:00:B7:6E:44:1F', <em class="parameter"><code>command_id</code></em>
+ would be
+0x01, <em class="parameter"><code>blob_size</code></em>
+ would be 6, and <em class="parameter"><code>blob</code></em>
+ would be '10:00:B7:6E:44:1F' (of which
+the first two bytes (10:00) is the real command data and the last 4 bytes
+(B7:6E:44:1F) is the MAC for the privileged command).</p>
+<div class="refsect3">
+<a name="mccr-device-run-generic.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>command_id</p></td>
+<td class="parameter_description"><p>the command id.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>blob</p></td>
+<td class="parameter_description"><p>binary blob with the command data, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>blob_size</code></em>
+is 0.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>blob_size</p></td>
+<td class="parameter_description"><p>size of <em class="parameter"><code>blob</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_blob</p></td>
+<td class="parameter_description"><p>output location for the response blob, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none expected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_blob_size</p></td>
+<td class="parameter_description"><p>output location for the <span class="type">size_t</span> with the size of <em class="parameter"><code>out_blob</code></em>
+, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none expected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-run-generic.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Generic-device-commands.other_details"></a><h2>Types and Values</h2>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25.1</div>
+</body>
+</html>

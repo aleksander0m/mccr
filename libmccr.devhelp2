@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="libmccr Reference Manual" link="index.html" author="" name="libmccr" version="2" language="c">
+  <chapters>
+    <sub name="MCCR library core utilities" link="pt01.html">
+      <sub name="Core library operations" link="libmccr-Core-library-operations.html"/>
+      <sub name="Library logging" link="libmccr-Library-logging.html"/>
+    </sub>
+    <sub name="MCCR device" link="pt02.html">
+      <sub name="Device object" link="libmccr-Device-object.html"/>
+      <sub name="Device state" link="libmccr-Device-state.html"/>
+      <sub name="Generic device commands" link="libmccr-Generic-device-commands.html"/>
+      <sub name="Swipe reports" link="libmccr-Swipe-reports.html"/>
+    </sub>
+    <sub name="API Index" link="ix01.html"/>
+  </chapters>
+  <functions>
+    <keyword type="function" name="mccr_status_to_string ()" link="libmccr-Core-library-operations.html#mccr-status-to-string"/>
+    <keyword type="function" name="mccr_init ()" link="libmccr-Core-library-operations.html#mccr-init"/>
+    <keyword type="function" name="mccr_exit ()" link="libmccr-Core-library-operations.html#mccr-exit"/>
+    <keyword type="enum" name="enum mccr_status_t" link="libmccr-Core-library-operations.html#mccr-status-t"/>
+    <keyword type="function" name="mccr_log_handler_t ()" link="libmccr-Library-logging.html#mccr-log-handler-t"/>
+    <keyword type="function" name="mccr_log_set_handler ()" link="libmccr-Library-logging.html#mccr-log-set-handler"/>
+    <keyword type="function" name="mccr_enumerate_devices ()" link="libmccr-Device-object.html#mccr-enumerate-devices"/>
+    <keyword type="function" name="mccr_device_new ()" link="libmccr-Device-object.html#mccr-device-new"/>
+    <keyword type="function" name="mccr_device_ref ()" link="libmccr-Device-object.html#mccr-device-ref"/>
+    <keyword type="function" name="mccr_device_unref ()" link="libmccr-Device-object.html#mccr-device-unref"/>
+    <keyword type="function" name="mccr_device_get_path ()" link="libmccr-Device-object.html#mccr-device-get-path"/>
+    <keyword type="function" name="mccr_device_get_vid ()" link="libmccr-Device-object.html#mccr-device-get-vid"/>
+    <keyword type="function" name="mccr_device_get_pid ()" link="libmccr-Device-object.html#mccr-device-get-pid"/>
+    <keyword type="function" name="mccr_device_get_serial_number ()" link="libmccr-Device-object.html#mccr-device-get-serial-number"/>
+    <keyword type="function" name="mccr_device_get_manufacturer ()" link="libmccr-Device-object.html#mccr-device-get-manufacturer"/>
+    <keyword type="function" name="mccr_device_get_product ()" link="libmccr-Device-object.html#mccr-device-get-product"/>
+    <keyword type="function" name="mccr_device_open ()" link="libmccr-Device-object.html#mccr-device-open"/>
+    <keyword type="function" name="mccr_device_is_open ()" link="libmccr-Device-object.html#mccr-device-is-open"/>
+    <keyword type="function" name="mccr_device_close ()" link="libmccr-Device-object.html#mccr-device-close"/>
+    <keyword type="function" name="mccr_device_reset ()" link="libmccr-Device-object.html#mccr-device-reset"/>
+    <keyword type="typedef" name="mccr_device_t" link="libmccr-Device-object.html#mccr-device-t"/>
+    <keyword type="function" name="mccr_device_read_software_id ()" link="libmccr-Device-state.html#mccr-device-read-software-id"/>
+    <keyword type="function" name="mccr_device_read_usb_serial_number ()" link="libmccr-Device-state.html#mccr-device-read-usb-serial-number"/>
+    <keyword type="function" name="mccr_device_read_polling_interval ()" link="libmccr-Device-state.html#mccr-device-read-polling-interval"/>
+    <keyword type="function" name="mccr_device_read_device_serial_number ()" link="libmccr-Device-state.html#mccr-device-read-device-serial-number"/>
+    <keyword type="function" name="mccr_device_read_magnesafe_version_number ()" link="libmccr-Device-state.html#mccr-device-read-magnesafe-version-number"/>
+    <keyword type="function" name="mccr_track_state_to_string ()" link="libmccr-Device-state.html#mccr-track-state-to-string"/>
+    <keyword type="function" name="mccr_device_read_track_id_enable ()" link="libmccr-Device-state.html#mccr-device-read-track-id-enable"/>
+    <keyword type="function" name="mccr_device_read_max_packet_size ()" link="libmccr-Device-state.html#mccr-device-read-max-packet-size"/>
+    <keyword type="function" name="mccr_device_read_iso_track_mask ()" link="libmccr-Device-state.html#mccr-device-read-iso-track-mask"/>
+    <keyword type="function" name="mccr_device_read_aamva_track_mask ()" link="libmccr-Device-state.html#mccr-device-read-aamva-track-mask"/>
+    <keyword type="function" name="mccr_device_get_dukpt_ksn_and_counter ()" link="libmccr-Device-state.html#mccr-device-get-dukpt-ksn-and-counter"/>
+    <keyword type="function" name="mccr_device_set_session_id ()" link="libmccr-Device-state.html#mccr-device-set-session-id"/>
+    <keyword type="function" name="mccr_reader_state_to_string ()" link="libmccr-Device-state.html#mccr-reader-state-to-string"/>
+    <keyword type="function" name="mccr_reader_state_antecedent_to_string ()" link="libmccr-Device-state.html#mccr-reader-state-antecedent-to-string"/>
+    <keyword type="function" name="mccr_device_get_reader_state ()" link="libmccr-Device-state.html#mccr-device-get-reader-state"/>
+    <keyword type="function" name="mccr_device_get_security_level ()" link="libmccr-Device-state.html#mccr-device-get-security-level"/>
+    <keyword type="function" name="mccr_device_get_encryption_counter ()" link="libmccr-Device-state.html#mccr-device-get-encryption-counter"/>
+    <keyword type="function" name="mccr_device_get_magtek_update_token ()" link="libmccr-Device-state.html#mccr-device-get-magtek-update-token"/>
+    <keyword type="enum" name="enum mccr_track_state_t" link="libmccr-Device-state.html#mccr-track-state-t"/>
+    <keyword type="enum" name="enum mccr_reader_state_t" link="libmccr-Device-state.html#mccr-reader-state-t"/>
+    <keyword type="enum" name="enum mccr_reader_state_antecedent_t" link="libmccr-Device-state.html#mccr-reader-state-antecedent-t"/>
+    <keyword type="enum" name="enum mccr_security_level_t" link="libmccr-Device-state.html#mccr-security-level-t"/>
+    <keyword type="macro" name="MCCR_ENCRYPTION_COUNTER_DISABLED" link="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-DISABLED:CAPS"/>
+    <keyword type="macro" name="MCCR_ENCRYPTION_COUNTER_EXPIRED" link="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-EXPIRED:CAPS"/>
+    <keyword type="macro" name="MCCR_ENCRYPTION_COUNTER_MIN" link="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-MIN:CAPS"/>
+    <keyword type="macro" name="MCCR_ENCRYPTION_COUNTER_MAX" link="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-MAX:CAPS"/>
+    <keyword type="function" name="mccr_device_run_generic ()" link="libmccr-Generic-device-commands.html#mccr-device-run-generic"/>
+    <keyword type="function" name="mccr_swipe_report_free ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-free"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-decode-status"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-decode-status"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-decode-status"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-absolute-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-absolute-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-absolute-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data"/>
+    <keyword type="function" name="mccr_card_encode_type_to_string ()" link="libmccr-Swipe-reports.html#mccr-card-encode-type-to-string"/>
+    <keyword type="function" name="mccr_swipe_report_get_card_encode_type ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-card-encode-type"/>
+    <keyword type="function" name="mccr_device_wait_swipe_report ()" link="libmccr-Swipe-reports.html#mccr-device-wait-swipe-report"/>
+    <keyword type="typedef" name="mccr_swipe_report_t" link="libmccr-Swipe-reports.html#mccr-swipe-report-t"/>
+    <keyword type="enum" name="enum mccr_swipe_track_decode_status_t" link="libmccr-Swipe-reports.html#mccr-swipe-track-decode-status-t"/>
+    <keyword type="enum" name="enum mccr_card_encode_type_t" link="libmccr-Swipe-reports.html#mccr-card-encode-type-t"/>
+    <keyword type="constant" name="MCCR_STATUS_OK" link="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_FAILED" link="libmccr-Core-library-operations.html#MCCR-STATUS-FAILED:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_NOT_FOUND" link="libmccr-Core-library-operations.html#MCCR-STATUS-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_INTERNAL" link="libmccr-Core-library-operations.html#MCCR-STATUS-INTERNAL:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_NOT_OPEN" link="libmccr-Core-library-operations.html#MCCR-STATUS-NOT-OPEN:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_WRITE_FAILED" link="libmccr-Core-library-operations.html#MCCR-STATUS-WRITE-FAILED:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_READ_FAILED" link="libmccr-Core-library-operations.html#MCCR-STATUS-READ-FAILED:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_REPORT_FAILED" link="libmccr-Core-library-operations.html#MCCR-STATUS-REPORT-FAILED:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_DELAYED" link="libmccr-Core-library-operations.html#MCCR-STATUS-DELAYED:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_INVALID_OPERATION" link="libmccr-Core-library-operations.html#MCCR-STATUS-INVALID-OPERATION:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_INVALID_INPUT" link="libmccr-Core-library-operations.html#MCCR-STATUS-INVALID-INPUT:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_UNEXPECTED_FORMAT" link="libmccr-Core-library-operations.html#MCCR-STATUS-UNEXPECTED-FORMAT:CAPS"/>
+    <keyword type="constant" name="MCCR_STATUS_TIMED_OUT" link="libmccr-Core-library-operations.html#MCCR-STATUS-TIMED-OUT:CAPS"/>
+    <keyword type="constant" name="MCCR_TRACK_STATE_DISABLED" link="libmccr-Device-state.html#MCCR-TRACK-STATE-DISABLED:CAPS"/>
+    <keyword type="constant" name="MCCR_TRACK_STATE_ENABLED" link="libmccr-Device-state.html#MCCR-TRACK-STATE-ENABLED:CAPS"/>
+    <keyword type="constant" name="MCCR_TRACK_STATE_ENABLED_REQUIRED" link="libmccr-Device-state.html#MCCR-TRACK-STATE-ENABLED-REQUIRED:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_WAIT_ACTIVATE_AUTHENTICATION" link="libmccr-Device-state.html#MCCR-READER-STATE-WAIT-ACTIVATE-AUTHENTICATION:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_WAIT_ACTIVATION_REPLY" link="libmccr-Device-state.html#MCCR-READER-STATE-WAIT-ACTIVATION-REPLY:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_WAIT_SWIPE" link="libmccr-Device-state.html#MCCR-READER-STATE-WAIT-SWIPE:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_WAIT_DELAY" link="libmccr-Device-state.html#MCCR-READER-STATE-WAIT-DELAY:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_POWERED_UP" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-POWERED-UP:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_GOOD_AUTHENTICATION" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-GOOD-AUTHENTICATION:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_GOOD_SWIPE" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-GOOD-SWIPE:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_BAD_SWIPE" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-BAD-SWIPE:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_FAILED_AUTHENTICATION" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-FAILED-AUTHENTICATION:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_FAILED_DEACTIVATION" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-FAILED-DEACTIVATION:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_AUTHENTICATION" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-TIMED-OUT-AUTHENTICATION:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_SWIPE" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-TIMED-OUT-SWIPE:CAPS"/>
+    <keyword type="constant" name="MCCR_READER_STATE_ANTECEDENT_KEY_SYNC_ERROR" link="libmccr-Device-state.html#MCCR-READER-STATE-ANTECEDENT-KEY-SYNC-ERROR:CAPS"/>
+    <keyword type="constant" name="MCCR_SECURITY_LEVEL_0" link="libmccr-Device-state.html#MCCR-SECURITY-LEVEL-0:CAPS"/>
+    <keyword type="constant" name="MCCR_SECURITY_LEVEL_1" link="libmccr-Device-state.html#MCCR-SECURITY-LEVEL-1:CAPS"/>
+    <keyword type="constant" name="MCCR_SECURITY_LEVEL_2" link="libmccr-Device-state.html#MCCR-SECURITY-LEVEL-2:CAPS"/>
+    <keyword type="constant" name="MCCR_SECURITY_LEVEL_3" link="libmccr-Device-state.html#MCCR-SECURITY-LEVEL-3:CAPS"/>
+    <keyword type="constant" name="MCCR_SECURITY_LEVEL_4" link="libmccr-Device-state.html#MCCR-SECURITY-LEVEL-4:CAPS"/>
+    <keyword type="constant" name="MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS" link="libmccr-Swipe-reports.html#MCCR-SWIPE-TRACK-DECODE-STATUS-SUCCESS:CAPS"/>
+    <keyword type="constant" name="MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR" link="libmccr-Swipe-reports.html#MCCR-SWIPE-TRACK-DECODE-STATUS-ERROR:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_ISO_ABA" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-ISO-ABA:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_AAMVA" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-AAMVA:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_RESERVED" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-RESERVED:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_BLANK" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-BLANK:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_OTHER" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-OTHER:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_UNDETERMINED" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-UNDETERMINED:CAPS"/>
+    <keyword type="constant" name="MCCR_CARD_ENCODE_TYPE_NONE" link="libmccr-Swipe-reports.html#MCCR-CARD-ENCODE-TYPE-NONE:CAPS"/>
+  </functions>
+</book>

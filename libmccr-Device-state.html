@@ -1,0 +1,1188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Device state: libmccr Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="libmccr Reference Manual">
+<link rel="up" href="pt02.html" title="Part II. MCCR device">
+<link rel="prev" href="libmccr-Device-object.html" title="Device object">
+<link rel="next" href="libmccr-Generic-device-commands.html" title="Generic device commands">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libmccr-Device-state.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pt02.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libmccr-Device-object.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libmccr-Generic-device-commands.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libmccr-Device-state"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libmccr-Device-state.top_of_page"></a>Device state</span></h2>
+<p>Device state — Methods to query and manage the device state.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libmccr-Device-state.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-software-id" title="mccr_device_read_software_id ()">mccr_device_read_software_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-usb-serial-number" title="mccr_device_read_usb_serial_number ()">mccr_device_read_usb_serial_number</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-polling-interval" title="mccr_device_read_polling_interval ()">mccr_device_read_polling_interval</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-device-serial-number" title="mccr_device_read_device_serial_number ()">mccr_device_read_device_serial_number</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-magnesafe-version-number" title="mccr_device_read_magnesafe_version_number ()">mccr_device_read_magnesafe_version_number</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-track-state-to-string" title="mccr_track_state_to_string ()">mccr_track_state_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-track-id-enable" title="mccr_device_read_track_id_enable ()">mccr_device_read_track_id_enable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-max-packet-size" title="mccr_device_read_max_packet_size ()">mccr_device_read_max_packet_size</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-iso-track-mask" title="mccr_device_read_iso_track_mask ()">mccr_device_read_iso_track_mask</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-read-aamva-track-mask" title="mccr_device_read_aamva_track_mask ()">mccr_device_read_aamva_track_mask</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-get-dukpt-ksn-and-counter" title="mccr_device_get_dukpt_ksn_and_counter ()">mccr_device_get_dukpt_ksn_and_counter</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-set-session-id" title="mccr_device_set_session_id ()">mccr_device_set_session_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-reader-state-to-string" title="mccr_reader_state_to_string ()">mccr_reader_state_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-to-string" title="mccr_reader_state_antecedent_to_string ()">mccr_reader_state_antecedent_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-get-reader-state" title="mccr_device_get_reader_state ()">mccr_device_get_reader_state</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-get-security-level" title="mccr_device_get_security_level ()">mccr_device_get_security_level</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-get-encryption-counter" title="mccr_device_get_encryption_counter ()">mccr_device_get_encryption_counter</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Device-state.html#mccr-device-get-magtek-update-token" title="mccr_device_get_magtek_update_token ()">mccr_device_get_magtek_update_token</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Device-state.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t">mccr_track_state_t</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t">mccr_reader_state_t</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t">mccr_reader_state_antecedent_t</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#mccr-security-level-t" title="enum mccr_security_level_t">mccr_security_level_t</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-DISABLED:CAPS" title="MCCR_ENCRYPTION_COUNTER_DISABLED">MCCR_ENCRYPTION_COUNTER_DISABLED</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-EXPIRED:CAPS" title="MCCR_ENCRYPTION_COUNTER_EXPIRED">MCCR_ENCRYPTION_COUNTER_EXPIRED</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-MIN:CAPS" title="MCCR_ENCRYPTION_COUNTER_MIN">MCCR_ENCRYPTION_COUNTER_MIN</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Device-state.html#MCCR-ENCRYPTION-COUNTER-MAX:CAPS" title="MCCR_ENCRYPTION_COUNTER_MAX">MCCR_ENCRYPTION_COUNTER_MAX</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Device-state.description"></a><h2>Description</h2>
+<p>This section defines methods to query the current device state.</p>
+<div class="example">
+<a name="id-1.3.3.5.3"></a><p class="title"><b>Example 3. Reading the DUKPT KSN and counter</b></p>
+<div class="example-contents">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">mccr_status_t</span><span class="normal">  st</span><span class="symbol">;</span>
+<span class="usertype">uint8_t</span><span class="normal">       </span><span class="symbol">*</span><span class="normal">ksn</span><span class="symbol">;</span>
+<span class="usertype">size_t</span><span class="normal">         ksn_size</span><span class="symbol">,</span><span class="normal"> i</span><span class="symbol">;</span>
+
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Device-state.html#mccr-device-get-dukpt-ksn-and-counter">mccr_device_get_dukpt_ksn_and_counter</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">device</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">ksn</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">ksn_size</span><span class="symbol">))</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">fprintf</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">stderr</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"error: cannot get DUKPT KSN and counter: %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="libmccr-Core-library-operations.html#mccr-status-to-string">mccr_status_to_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">st</span><span class="symbol">));</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
+
+<span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"DUKPT KSN and counter: "</span><span class="symbol">);</span>
+<span class="keyword">for</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">i </span><span class="symbol">=</span><span class="normal"> </span><span class="number">0</span><span class="symbol">;</span><span class="normal"> i </span><span class="symbol">&lt;</span><span class="normal"> ksn_size</span><span class="symbol">;</span><span class="normal"> i</span><span class="symbol">++)</span>
+<span class="normal">  </span><span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"%02x%s"</span><span class="symbol">,</span><span class="normal"> ksn</span><span class="symbol">[</span><span class="normal">i</span><span class="symbol">],</span><span class="normal"> i </span><span class="symbol">&lt;</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">ksn_size </span><span class="symbol">-</span><span class="normal"> </span><span class="number">1</span><span class="symbol">)</span><span class="normal"> </span><span class="symbol">?</span><span class="normal"> </span><span class="string">":"</span><span class="normal"> </span><span class="symbol">:</span><span class="normal"> </span><span class="string">""</span><span class="symbol">);</span>
+<span class="function">printf</span><span class="normal"> </span><span class="symbol">(</span><span class="string">"</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">);</span>
+
+<span class="function">free</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">ksn</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break">
+</div>
+<div class="refsect1">
+<a name="libmccr-Device-state.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="mccr-device-read-software-id"></a><h3>mccr_device_read_software_id ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_software_id (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                              <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the Software ID property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-software-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-software-id.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-usb-serial-number"></a><h3>mccr_device_read_usb_serial_number ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_usb_serial_number (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                    <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the USB serial number property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-usb-serial-number.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-usb-serial-number.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-polling-interval"></a><h3>mccr_device_read_polling_interval ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_polling_interval (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                   <em class="parameter"><code><span class="type">uint8_t</span> *out_val</code></em>);</pre>
+<p>Read the polling interval, in milliseconds.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-polling-interval.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_val</p></td>
+<td class="parameter_description"><p>output location for the <span class="type">uint8_t</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-polling-interval.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-device-serial-number"></a><h3>mccr_device_read_device_serial_number ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_device_serial_number (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                       <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the device serial number property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-device-serial-number.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-device-serial-number.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-magnesafe-version-number"></a><h3>mccr_device_read_magnesafe_version_number ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_magnesafe_version_number
+                               (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the MagneSafe version number property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-magnesafe-version-number.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-magnesafe-version-number.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-track-state-to-string"></a><h3>mccr_track_state_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+mccr_track_state_to_string (<em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> st</code></em>);</pre>
+<p>Gets a description for the given <a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a>.</p>
+<div class="refsect3">
+<a name="mccr-track-state-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>st</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-track-state-to-string.returns"></a><h4>Returns</h4>
+<p> a constant string.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-track-id-enable"></a><h3>mccr_device_read_track_id_enable ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_track_id_enable (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                  <em class="parameter"><code><span class="type">bool</span> *out_aamva_supported</code></em>,
+                                  <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> *out_track_1</code></em>,
+                                  <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> *out_track_2</code></em>,
+                                  <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> *out_track_3</code></em>);</pre>
+<p>Read the ISO track mask property string.</p>
+<div class="refsect3">
+<a name="mccr-device-read-track-id-enable.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_aamva_supported</p></td>
+<td class="parameter_description"><p>output location for the boolean specifying whether AAMVA cards are supported..</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_track_1</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> with the track 1 status.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_track_2</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> with the track 2 status.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_track_3</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-track-state-t" title="enum mccr_track_state_t"><span class="type">mccr_track_state_t</span></a> with the track 3 status.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-track-id-enable.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-max-packet-size"></a><h3>mccr_device_read_max_packet_size ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_max_packet_size (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                  <em class="parameter"><code><span class="type">uint8_t</span> *out_val</code></em>);</pre>
+<p>Read the maximum packet size, in bytes.</p>
+<div class="refsect3">
+<a name="mccr-device-read-max-packet-size.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_val</p></td>
+<td class="parameter_description"><p>output location for the <span class="type">uint8_t</span>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-max-packet-size.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-iso-track-mask"></a><h3>mccr_device_read_iso_track_mask ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_iso_track_mask (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                 <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the ISO track mask property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-iso-track-mask.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-iso-track-mask.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-read-aamva-track-mask"></a><h3>mccr_device_read_aamva_track_mask ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_read_aamva_track_mask (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                   <em class="parameter"><code><span class="type">char</span> **out_str</code></em>);</pre>
+<p>Read the AAMVA track mask property string.</p>
+<p>When no longer needed, <em class="parameter"><code>out_str</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-read-aamva-track-mask.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_str</p></td>
+<td class="parameter_description"><p>output location for the newly allocated string property.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-read-aamva-track-mask.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-get-dukpt-ksn-and-counter"></a><h3>mccr_device_get_dukpt_ksn_and_counter ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_get_dukpt_ksn_and_counter (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                       <em class="parameter"><code><span class="type">uint8_t</span> **out_ksn_and_counter</code></em>,
+                                       <em class="parameter"><code><span class="type">size_t</span> *out_ksn_and_counter_size</code></em>);</pre>
+<p>Get DUKPT KSN and counter.</p>
+<p>The returned array will be 10 bytes long, the output <em class="parameter"><code>out_ksn_and_counter_size</code></em>
+
+is given for convenience.</p>
+<p>When no longer needed, <em class="parameter"><code>out_ksn_and_counter</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-get-dukpt-ksn-and-counter.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_ksn_and_counter</p></td>
+<td class="parameter_description"><p>output location for the newly allocated array containing the KSN and counter.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_ksn_and_counter_size</p></td>
+<td class="parameter_description"><p>output location for the <span class="type">size_t</span> with the size of <em class="parameter"><code>out_ksn_and_counter</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-get-dukpt-ksn-and-counter.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-set-session-id"></a><h3>mccr_device_set_session_id ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_set_session_id (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                            <em class="parameter"><code><span class="type">uint64_t</span> session_id</code></em>);</pre>
+<p>Set the current session id, used by the host to uniquely identify the present
+transaction.</p>
+<div class="refsect3">
+<a name="mccr-device-set-session-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>session_id</p></td>
+<td class="parameter_description"><p>a 64-bit value.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-set-session-id.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-reader-state-to-string"></a><h3>mccr_reader_state_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+mccr_reader_state_to_string (<em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t"><span class="type">mccr_reader_state_t</span></a> st</code></em>);</pre>
+<p>Gets a description for the given <a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t"><span class="type">mccr_reader_state_t</span></a>.</p>
+<div class="refsect3">
+<a name="mccr-reader-state-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>st</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t"><span class="type">mccr_reader_state_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-reader-state-to-string.returns"></a><h4>Returns</h4>
+<p> a constant string.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-reader-state-antecedent-to-string"></a><h3>mccr_reader_state_antecedent_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+mccr_reader_state_antecedent_to_string
+                               (<em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t"><span class="type">mccr_reader_state_antecedent_t</span></a> val</code></em>);</pre>
+<p>Gets a description for the given <a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t"><span class="type">mccr_reader_state_antecedent_t</span></a>.</p>
+<div class="refsect3">
+<a name="mccr-reader-state-antecedent-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>val</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t"><span class="type">mccr_reader_state_antecedent_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-reader-state-antecedent-to-string.returns"></a><h4>Returns</h4>
+<p> a constant string.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-get-reader-state"></a><h3>mccr_device_get_reader_state ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_get_reader_state (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                              <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t"><span class="type">mccr_reader_state_t</span></a> *out_state</code></em>,
+                              <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t"><span class="type">mccr_reader_state_antecedent_t</span></a> *out_antecedent</code></em>);</pre>
+<p>Get current reader state and how the reader reached it.</p>
+<div class="refsect3">
+<a name="mccr-device-get-reader-state.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_state</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-reader-state-t" title="enum mccr_reader_state_t"><span class="type">mccr_reader_state_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_antecedent</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-reader-state-antecedent-t" title="enum mccr_reader_state_antecedent_t"><span class="type">mccr_reader_state_antecedent_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-get-reader-state.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-get-security-level"></a><h3>mccr_device_get_security_level ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_get_security_level (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                <em class="parameter"><code><a class="link" href="libmccr-Device-state.html#mccr-security-level-t" title="enum mccr_security_level_t"><span class="type">mccr_security_level_t</span></a> *out_level</code></em>);</pre>
+<p>Get current security level.</p>
+<div class="refsect3">
+<a name="mccr-device-get-security-level.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_level</p></td>
+<td class="parameter_description"><p>output location for the <a class="link" href="libmccr-Device-state.html#mccr-security-level-t" title="enum mccr_security_level_t"><span class="type">mccr_security_level_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-get-security-level.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-get-encryption-counter"></a><h3>mccr_device_get_encryption_counter ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_get_encryption_counter (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                    <em class="parameter"><code><span class="type">char</span> **out_device_serial_number</code></em>,
+                                    <em class="parameter"><code><span class="type">uint32_t</span> *out_encryption_counter</code></em>);</pre>
+<p>Get device serial number and encryption counter.</p>
+<p>When no longer needed, <em class="parameter"><code>out_device_serial_number</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-get-encryption-counter.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_device_serial_number</p></td>
+<td class="parameter_description"><p>output location for the newly allocated device serial number string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_encryption_counter</p></td>
+<td class="parameter_description"><p>output location for the encryption counter.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-get-encryption-counter.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-device-get-magtek-update-token"></a><h3>mccr_device_get_magtek_update_token ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_device_get_magtek_update_token (<em class="parameter"><code><a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a> *device</code></em>,
+                                     <em class="parameter"><code><span class="type">uint8_t</span> **out_mut</code></em>,
+                                     <em class="parameter"><code><span class="type">size_t</span> *out_mut_size</code></em>);</pre>
+<p>Get Magtek Update Token (MUT).</p>
+<p>The returned array will be 36 bytes long, the output <em class="parameter"><code>out_mut_size</code></em>
+
+is given for convenience.</p>
+<p>When no longer needed, <em class="parameter"><code>out_mut</code></em>
+ should be disposed with <code class="function">free()</code>.</p>
+<div class="refsect3">
+<a name="mccr-device-get-magtek-update-token.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>an open <a class="link" href="libmccr-Device-object.html#mccr-device-t" title="mccr_device_t"><span class="type">mccr_device_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_mut</p></td>
+<td class="parameter_description"><p>output location for the array containing the MUT.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_mut_size</p></td>
+<td class="parameter_description"><p>output location for the <span class="type">size_t</span> with the size of <em class="parameter"><code>out_mut</code></em>
+.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-device-get-magtek-update-token.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Device-state.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="mccr-track-state-t"></a><h3>enum mccr_track_state_t</h3>
+<p>State of the card track.</p>
+<div class="refsect3">
+<a name="mccr-track-state-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-TRACK-STATE-DISABLED:CAPS"></a>MCCR_TRACK_STATE_DISABLED</p></td>
+<td class="enum_member_description">
+<p>Track is disabled.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-TRACK-STATE-ENABLED:CAPS"></a>MCCR_TRACK_STATE_ENABLED</p></td>
+<td class="enum_member_description">
+<p>Track is enabled.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-TRACK-STATE-ENABLED-REQUIRED:CAPS"></a>MCCR_TRACK_STATE_ENABLED_REQUIRED</p></td>
+<td class="enum_member_description">
+<p>Track is enabled and required (error if blank).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-reader-state-t"></a><h3>enum mccr_reader_state_t</h3>
+<p>Current reader state.</p>
+<div class="refsect3">
+<a name="mccr-reader-state-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-WAIT-ACTIVATE-AUTHENTICATION:CAPS"></a>MCCR_READER_STATE_WAIT_ACTIVATE_AUTHENTICATION</p></td>
+<td class="enum_member_description">
+<p>Waiting for authenticated mode.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-WAIT-ACTIVATION-REPLY:CAPS"></a>MCCR_READER_STATE_WAIT_ACTIVATION_REPLY</p></td>
+<td class="enum_member_description">
+<p>Waiting for activation challenge reply.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-WAIT-SWIPE:CAPS"></a>MCCR_READER_STATE_WAIT_SWIPE</p></td>
+<td class="enum_member_description">
+<p>Waiting for swipe.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-WAIT-DELAY:CAPS"></a>MCCR_READER_STATE_WAIT_DELAY</p></td>
+<td class="enum_member_description">
+<p>Waiting for anti-hacking timer.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-reader-state-antecedent-t"></a><h3>enum mccr_reader_state_antecedent_t</h3>
+<p>How the reader got into its current state.</p>
+<div class="refsect3">
+<a name="mccr-reader-state-antecedent-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-POWERED-UP:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_POWERED_UP</p></td>
+<td class="enum_member_description">
+<p>Powered up.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-GOOD-AUTHENTICATION:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_GOOD_AUTHENTICATION</p></td>
+<td class="enum_member_description">
+<p>Good authentication.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-GOOD-SWIPE:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_GOOD_SWIPE</p></td>
+<td class="enum_member_description">
+<p>Good swipe.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-BAD-SWIPE:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_BAD_SWIPE</p></td>
+<td class="enum_member_description">
+<p>Bad swipe.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-FAILED-AUTHENTICATION:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_FAILED_AUTHENTICATION</p></td>
+<td class="enum_member_description">
+<p>Failed authentication.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-FAILED-DEACTIVATION:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_FAILED_DEACTIVATION</p></td>
+<td class="enum_member_description">
+<p>Failed deactivation.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-TIMED-OUT-AUTHENTICATION:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_AUTHENTICATION</p></td>
+<td class="enum_member_description">
+<p>Authentication timed out.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-TIMED-OUT-SWIPE:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_SWIPE</p></td>
+<td class="enum_member_description">
+<p>Swipe timed out.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-READER-STATE-ANTECEDENT-KEY-SYNC-ERROR:CAPS"></a>MCCR_READER_STATE_ANTECEDENT_KEY_SYNC_ERROR</p></td>
+<td class="enum_member_description">
+<p>Key sync error.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-security-level-t"></a><h3>enum mccr_security_level_t</h3>
+<p>Security level.</p>
+<div class="refsect3">
+<a name="mccr-security-level-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SECURITY-LEVEL-0:CAPS"></a>MCCR_SECURITY_LEVEL_0</p></td>
+<td class="enum_member_description">
+<p>Security level 0: all DUKPT keys used.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SECURITY-LEVEL-1:CAPS"></a>MCCR_SECURITY_LEVEL_1</p></td>
+<td class="enum_member_description">
+<p>Security level 1: factory test only.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SECURITY-LEVEL-2:CAPS"></a>MCCR_SECURITY_LEVEL_2</p></td>
+<td class="enum_member_description">
+<p>Security level 2: least secure user mode, only track data is sent, no magneprint data.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SECURITY-LEVEL-3:CAPS"></a>MCCR_SECURITY_LEVEL_3</p></td>
+<td class="enum_member_description">
+<p>Security level 3: encryption of track data, magneprint data and session id enabled.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-SECURITY-LEVEL-4:CAPS"></a>MCCR_SECURITY_LEVEL_4</p></td>
+<td class="enum_member_description">
+<p>Security level 4: authentication required.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-ENCRYPTION-COUNTER-DISABLED:CAPS"></a><h3>MCCR_ENCRYPTION_COUNTER_DISABLED</h3>
+<pre class="programlisting">#define MCCR_ENCRYPTION_COUNTER_DISABLED 0xFFFFFF
+</pre>
+<p>Encryption counter is disabled.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-ENCRYPTION-COUNTER-EXPIRED:CAPS"></a><h3>MCCR_ENCRYPTION_COUNTER_EXPIRED</h3>
+<pre class="programlisting">#define MCCR_ENCRYPTION_COUNTER_EXPIRED 0x000000
+</pre>
+<p>Encryption counter is expired (all transactions prohibited).</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-ENCRYPTION-COUNTER-MIN:CAPS"></a><h3>MCCR_ENCRYPTION_COUNTER_MIN</h3>
+<pre class="programlisting">#define MCCR_ENCRYPTION_COUNTER_MIN 0x000001
+</pre>
+<p>Minimum valid encryption counter.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-ENCRYPTION-COUNTER-MAX:CAPS"></a><h3>MCCR_ENCRYPTION_COUNTER_MAX</h3>
+<pre class="programlisting">#define MCCR_ENCRYPTION_COUNTER_MAX 0x0F4240
+</pre>
+<p>Maximum valid encryption counter.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25.1</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Core library operations: libmccr Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="libmccr Reference Manual">
+<link rel="up" href="pt01.html" title="Part I. MCCR library core utilities">
+<link rel="prev" href="pt01.html" title="Part I. MCCR library core utilities">
+<link rel="next" href="libmccr-Library-logging.html" title="Library logging">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libmccr-Core-library-operations.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pt01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pt01.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libmccr-Library-logging.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libmccr-Core-library-operations"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libmccr-Core-library-operations.top_of_page"></a>Core library operations</span></h2>
+<p>Core library operations — Methods and types to initialize and teardown the library.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libmccr-Core-library-operations.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">const <span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-to-string" title="mccr_status_to_string ()">mccr_status_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-init" title="mccr_init ()">mccr_init</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Core-library-operations.html#mccr-exit" title="mccr_exit ()">mccr_exit</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Core-library-operations.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t">mccr_status_t</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Core-library-operations.description"></a><h2>Description</h2>
+<p>This section defines the core types and methods exposed by the MCCR library.</p>
+<div class="example">
+<a name="id-1.2.2.5.3"></a><p class="title"><b>Example 1. Initializing and tearing down the library</b></p>
+<div class="example-contents">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">mccr_status_t</span><span class="normal">  st</span><span class="symbol">;</span>
+
+<span class="keyword">if</span><span class="normal"> </span><span class="symbol">((</span><span class="normal">st </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libmccr-Core-library-operations.html#mccr-init">mccr_init</a></span><span class="normal"> </span><span class="symbol">())</span><span class="normal"> </span><span class="symbol">!=</span><span class="normal"> <a href="libmccr-Core-library-operations.html#MCCR-STATUS-OK:CAPS">MCCR_STATUS_OK</a></span><span class="symbol">)</span><span class="normal"> </span><span class="cbracket">{</span>
+<span class="normal">  </span><span class="function">fprintf</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">stderr</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"error: couldn't initialize MCCR library: %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> </span><span class="function"><a href="libmccr-Core-library-operations.html#mccr-status-to-string">mccr_status_to_string</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">st</span><span class="symbol">));</span>
+<span class="normal">  </span><span class="keyword">return</span><span class="normal"> EXIT_FAILURE</span><span class="symbol">;</span>
+<span class="cbracket">}</span>
+
+<span class="comment">// Use the library here</span>
+
+<span class="function"><a href="libmccr-Core-library-operations.html#mccr-exit">mccr_exit</a></span><span class="normal"> </span><span class="symbol">();</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break">
+</div>
+<div class="refsect1">
+<a name="libmccr-Core-library-operations.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="mccr-status-to-string"></a><h3>mccr_status_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *
+mccr_status_to_string (<em class="parameter"><code><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a> st</code></em>);</pre>
+<p>Gets a description for the given <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+<div class="refsect3">
+<a name="mccr-status-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>st</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="mccr-status-to-string.returns"></a><h4>Returns</h4>
+<p> a constant string.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-init"></a><h3>mccr_init ()</h3>
+<pre class="programlisting"><a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="returnvalue">mccr_status_t</span></a>
+mccr_init (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Initialize the library.</p>
+<p>This operation must be run once at program startup, or after <a class="link" href="libmccr-Core-library-operations.html#mccr-exit" title="mccr_exit ()"><code class="function">mccr_exit()</code></a> has
+been run and the library needs to be reinitialized.</p>
+<p>If <a class="link" href="libmccr-Core-library-operations.html#mccr-init" title="mccr_init ()"><code class="function">mccr_init()</code></a> fails, no further library operations may be executed, it is a
+fatal error.</p>
+<div class="refsect3">
+<a name="mccr-init.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="libmccr-Core-library-operations.html#mccr-status-t" title="enum mccr_status_t"><span class="type">mccr_status_t</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-exit"></a><h3>mccr_exit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+mccr_exit (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Teardown the library.</p>
+<p>If a clean output report is required, the user may teardown the library using
+this method. It isn't strictly required to do this unless <a class="link" href="libmccr-Core-library-operations.html#mccr-init" title="mccr_init ()"><code class="function">mccr_init()</code></a> is
+going to be called again.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Core-library-operations.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="mccr-status-t"></a><h3>enum mccr_status_t</h3>
+<p>Status of an operation performed with the MCCR library.</p>
+<div class="refsect3">
+<a name="mccr-status-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-OK:CAPS"></a>MCCR_STATUS_OK</p></td>
+<td class="enum_member_description">
+<p>Operation successful.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-FAILED:CAPS"></a>MCCR_STATUS_FAILED</p></td>
+<td class="enum_member_description">
+<p>Operation failed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-NOT-FOUND:CAPS"></a>MCCR_STATUS_NOT_FOUND</p></td>
+<td class="enum_member_description">
+<p>Item not found.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-INTERNAL:CAPS"></a>MCCR_STATUS_INTERNAL</p></td>
+<td class="enum_member_description">
+<p>Internal error.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-NOT-OPEN:CAPS"></a>MCCR_STATUS_NOT_OPEN</p></td>
+<td class="enum_member_description">
+<p>Device not open.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-WRITE-FAILED:CAPS"></a>MCCR_STATUS_WRITE_FAILED</p></td>
+<td class="enum_member_description">
+<p>Writing to the device failed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-READ-FAILED:CAPS"></a>MCCR_STATUS_READ_FAILED</p></td>
+<td class="enum_member_description">
+<p>Reading from the device failed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-REPORT-FAILED:CAPS"></a>MCCR_STATUS_REPORT_FAILED</p></td>
+<td class="enum_member_description">
+<p>Report failed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-DELAYED:CAPS"></a>MCCR_STATUS_DELAYED</p></td>
+<td class="enum_member_description">
+<p>Operation delayed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-INVALID-OPERATION:CAPS"></a>MCCR_STATUS_INVALID_OPERATION</p></td>
+<td class="enum_member_description">
+<p>Invalid operation.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-INVALID-INPUT:CAPS"></a>MCCR_STATUS_INVALID_INPUT</p></td>
+<td class="enum_member_description">
+<p>Invalid input.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-UNEXPECTED-FORMAT:CAPS"></a>MCCR_STATUS_UNEXPECTED_FORMAT</p></td>
+<td class="enum_member_description">
+<p>Unexpected format.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="MCCR-STATUS-TIMED-OUT:CAPS"></a>MCCR_STATUS_TIMED_OUT</p></td>
+<td class="enum_member_description">
+<p>Operation timed out.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25.1</div>
+</body>
+</html>
