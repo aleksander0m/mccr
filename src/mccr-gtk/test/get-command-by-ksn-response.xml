@@ -1,0 +1,18 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <GetCommandByKSNResponse xmlns="http://www.magensa.net/RemoteServices/v2/">
+         <GetCommandByKSNResult xmlns:a="http://schemas.datacontract.org/2004/07/RemoteServicesv2.Core" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:CustomerTransactionId/>
+            <a:MagTranId>acedf116-bdac-4e53-9785-047d78b05e43</a:MagTranId>
+            <a:Command>
+               <a:CommandType>0</a:CommandType>
+               <a:Description>Masking to 1234********1234</a:Description>
+               <a:ExecutionTypeEnum>KSN</a:ExecutionTypeEnum>
+               <a:ID>10</a:ID>
+               <a:Name>MASK_4*4</a:Name>
+               <a:Value>010B07303430342A4EC62BAD2B</a:Value>
+            </a:Command>
+         </GetCommandByKSNResult>
+      </GetCommandByKSNResponse>
+   </s:Body>
+</s:Envelope>

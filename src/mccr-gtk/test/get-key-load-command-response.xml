@@ -1,0 +1,28 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <GetKeyLoadCommandResponse xmlns="http://www.magensa.net/RemoteServices/v2/">
+         <GetKeyLoadCommandResult xmlns:a="http://schemas.datacontract.org/2004/07/RemoteServicesv2.Core" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:CustomerTransactionId>2</a:CustomerTransactionId>
+            <a:MagTranId>69564202-7c43-488f-8876-1e146d9e7698</a:MagTranId>
+            <a:Commands>
+               <a:Command>
+                  <a:CommandType>0</a:CommandType>
+                  <a:Description>To SCRA Device</a:Description>
+                  <a:ExecutionTypeEnum>ALL</a:ExecutionTypeEnum>
+                  <a:ID>0</a:ID>
+                  <a:Name>ChangeKey</a:Name>
+                  <a:Value>223142333933373837303231333137414100019011880B393787000000EB31758E0DF16C9DDFFB11FA5F245406B1180A9C2759</a:Value>
+               </a:Command>
+               <a:Command>
+                  <a:CommandType>0</a:CommandType>
+                  <a:Description>Key Check Value</a:Description>
+                  <a:ExecutionTypeEnum>ALL</a:ExecutionTypeEnum>
+                  <a:ID>0</a:ID>
+                  <a:Name>KCV</a:Name>
+                  <a:Value>1D1DF857B3</a:Value>
+               </a:Command>
+            </a:Commands>
+         </GetKeyLoadCommandResult>
+      </GetKeyLoadCommandResponse>
+   </s:Body>
+</s:Envelope>

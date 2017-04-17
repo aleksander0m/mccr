@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Credit Card Reader
+Comment=MagTek credit card reader management tool
+Exec=mccr-gtk
+Icon=mccr-gtk
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;

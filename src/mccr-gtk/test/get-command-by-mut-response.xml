@@ -1,0 +1,18 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <GetCommandByMUTResponse xmlns="http://www.magensa.net/RemoteServices/v2/">
+         <GetCommandByMUTResult xmlns:a="http://schemas.datacontract.org/2004/07/RemoteServicesv2.Core" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:CustomerTransactionId>?</a:CustomerTransactionId>
+            <a:MagTranId>107382ff-e47a-4e35-b396-bc7d6f32c434</a:MagTranId>
+            <a:Command>
+               <a:CommandType>0</a:CommandType>
+               <a:Description>Encrypt using Data Variant</a:Description>
+               <a:ExecutionTypeEnum>MUT</a:ExecutionTypeEnum>
+               <a:ID>34</a:ID>
+               <a:Name>ENC_VARIANT_DATA</a:Name>
+               <a:Value>01065401062B01AE</a:Value>
+            </a:Command>
+         </GetCommandByMUTResult>
+      </GetCommandByMUTResponse>
+   </s:Body>
+</s:Envelope>

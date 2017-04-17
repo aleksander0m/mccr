@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=${prefix}/include
+
+Name: mccr
+Description: Support library for MagTek credit card readers
+Version: @VERSION@
+Requires.private: @HIDAPI_PKGCONFIG@ dukpt
+Libs: -L${libdir} -lmccr
+Cflags: -I${includedir}/

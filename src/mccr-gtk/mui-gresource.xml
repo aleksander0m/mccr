@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/es/aleksander/mccr-gtk">
+    <file preprocess="xml-stripblanks">mui-menu.ui</file>
+    <file preprocess="xml-stripblanks">mui-window.ui</file>
+    <file preprocess="xml-stripblanks">mui-page-basic.ui</file>
+    <file preprocess="xml-stripblanks">mui-page-advanced.ui</file>
+    <file preprocess="xml-stripblanks">mui-page-remote-services.ui</file>
+    <file preprocess="xml-stripblanks">test/get-key-list-response.xml</file>
+    <file preprocess="xml-stripblanks">test/get-key-load-command-response.xml</file>
+  </gresource>
+</gresources>

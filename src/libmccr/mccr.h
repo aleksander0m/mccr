@@ -1,0 +1,1074 @@
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
+/*
+ * libmccr - Support library for MagTek Credit Card Readers
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA.
+ *
+ * Copyright (C) 2017 Zodiac Inflight Innovations
+ * Copyright (C) 2017 Aleksander Morgado <aleksander@aleksander.es>
+ */
+
+#ifndef MCCR_H
+#define MCCR_H
+
+#include <wchar.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <pthread.h>
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-core
+ * @title: Core library operations
+ * @short_description: Methods and types to initialize and teardown the library.
+ *
+ * This section defines the core types and methods exposed by the MCCR library.
+ *
+ * <example>
+ * <title>Initializing and tearing down the library</title>
+ * <programlisting>
+ *  mccr_status_t  st;
+ *
+ *  if ((st = mccr_init ()) != MCCR_STATUS_OK) {
+ *    fprintf (stderr, "error: couldn't initialize MCCR library: %s\n", mccr_status_to_string (st));
+ *    return EXIT_FAILURE;
+ *  }
+ *
+ *  // Use the library here
+ *
+ *  mccr_exit ();
+ * </programlisting>
+ * </example>
+ */
+
+/* Status */
+
+/**
+ * mccr_status_t:
+ * @MCCR_STATUS_OK: Operation successful.
+ * @MCCR_STATUS_FAILED: Operation failed.
+ * @MCCR_STATUS_NOT_FOUND: Item not found.
+ * @MCCR_STATUS_INTERNAL: Internal error.
+ * @MCCR_STATUS_NOT_OPEN: Device not open.
+ * @MCCR_STATUS_WRITE_FAILED: Writing to the device failed.
+ * @MCCR_STATUS_READ_FAILED: Reading from the device failed.
+ * @MCCR_STATUS_REPORT_FAILED: Report failed.
+ * @MCCR_STATUS_DELAYED: Operation delayed.
+ * @MCCR_STATUS_INVALID_OPERATION: Invalid operation.
+ * @MCCR_STATUS_INVALID_INPUT: Invalid input.
+ * @MCCR_STATUS_UNEXPECTED_FORMAT: Unexpected format.
+ * @MCCR_STATUS_TIMED_OUT: Operation timed out.
+ *
+ * Status of an operation performed with the MCCR library.
+ */
+typedef enum {
+    MCCR_STATUS_OK,
+    MCCR_STATUS_FAILED,
+    MCCR_STATUS_NOT_FOUND,
+    MCCR_STATUS_INTERNAL,
+    MCCR_STATUS_NOT_OPEN,
+    MCCR_STATUS_WRITE_FAILED,
+    MCCR_STATUS_READ_FAILED,
+    MCCR_STATUS_REPORT_FAILED,
+    MCCR_STATUS_DELAYED,
+    MCCR_STATUS_INVALID_OPERATION,
+    MCCR_STATUS_INVALID_INPUT,
+    MCCR_STATUS_UNEXPECTED_FORMAT,
+    MCCR_STATUS_TIMED_OUT,
+} mccr_status_t;
+
+/**
+ * mccr_status_to_string:
+ * @st: a #mccr_status_t.
+ *
+ * Gets a description for the given #mccr_status_t.
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_status_to_string (mccr_status_t st);
+
+/* Library initialization and teardown */
+
+/**
+ * mccr_init:
+ *
+ * Initialize the library.
+ *
+ * This operation must be run once at program startup, or after mccr_exit() has
+ * been run and the library needs to be reinitialized.
+ *
+ * If mccr_init() fails, no further library operations may be executed, it is a
+ * fatal error.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_init (void);
+
+/**
+ * mccr_exit:
+ *
+ * Teardown the library.
+ *
+ * If a clean output report is required, the user may teardown the library using
+ * this method. It isn't strictly required to do this unless mccr_init() is
+ * going to be called again.
+ */
+void mccr_exit (void);
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-device
+ * @title: Device object
+ * @short_description: Basic methods to create and use devices.
+ *
+ * This section defines the MCCR device type as well as methods to create and
+ * use them.
+ *
+ * <example>
+ * <title>Opening and closing the device</title>
+ * <programlisting>
+ *  mccr_status_t  st;
+ *  mccr_device_t *device;
+ *
+ *  device = mccr_device_new (NULL);
+ *  if (!device) {
+ *    fprintf (stderr, "error: couldn't find a MagTek credit card reader\n");
+ *    return EXIT_FAILURE;
+ *  }
+ *
+ *  if ((st = mccr_device_open (device)) != MCCR_STATUS_OK) {
+ *    fprintf (stderr, "error: couldn't open MagTek credit card reader: %s\n", mccr_status_to_string (st));
+ *    return EXIT_FAILURE;
+ *  }
+ *
+ *  // Use the device here
+ *
+ *  mccr_device_close (device);
+ *  mccr_device_unref (device);
+ * </programlisting>
+ * </example>
+ */
+
+/**
+ * mccr_device_t:
+ *
+ * This is an opaque type representing a physical MagTek credit card
+ * reader device.
+ */
+typedef struct mccr_device_s mccr_device_t;
+
+/**
+ * mccr_enumerate_devices:
+ *
+ * Enumerates all available MagTek credit card reader devices.
+ *
+ * Returns: a newly allocated %NULL-terminated array of #mccr_device_t
+ * instances or %NULL if no devices found. When no longer needed,
+ * mccr_device_unref() should be called on each #mccr_device_t in the
+ * array, and free() for the array itself.
+ */
+mccr_device_t **mccr_enumerate_devices (void);
+
+/**
+ * mccr_device_new:
+ * @path: the enumerated path that identifies this device.
+ *
+ * Creates a #mccr_device_t from the given path.
+ * There is no predefined format for the path, the user should use a path
+ * previously returned by mccr_enumerate_devices().
+ *
+ * If a NULL @path is given, the #mccr_device_t is created from the first
+ * device found.
+ *
+ * Returns: a new #mccr_device_t reference.
+ */
+mccr_device_t *mccr_device_new (const char *path);
+
+/**
+ * mccr_device_ref:
+ * @device: a #mccr_device_t.
+ *
+ * Increases the reference count on the #mccr_device_t.
+ *
+ * Returns: a new #mccr_device_t reference.
+ */
+mccr_device_t *mccr_device_ref (mccr_device_t *device);
+
+/**
+ * mccr_device_unref:
+ * @device: a #mccr_device_t.
+ *
+ * Decreases the reference count on the #mccr_device_t. When the count
+ * reaches zero, the instance is disposed.
+ */
+void mccr_device_unref (mccr_device_t *device);
+
+/* Device info */
+
+/**
+ * mccr_device_get_path:
+ * @device: a #mccr_device_t.
+ *
+ * Get USB path of the device.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_device_get_path (mccr_device_t *device);
+
+/**
+ * mccr_device_get_vid:
+ * @device: a #mccr_device_t.
+ *
+ * Get the USB vendor ID.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a #uint16_t.
+ */
+uint16_t mccr_device_get_vid (mccr_device_t *device);
+
+/**
+ * mccr_device_get_pid:
+ * @device: a #mccr_device_t.
+ *
+ * Get the USB product ID.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a #uint16_t.
+ */
+uint16_t mccr_device_get_pid (mccr_device_t *device);
+
+/**
+ * mccr_device_get_serial_number:
+ * @device: a #mccr_device_t.
+ *
+ * Get the serial number of the device.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a wide-character constant string.
+ */
+const wchar_t *mccr_device_get_serial_number (mccr_device_t *device);
+
+/**
+ * mccr_device_get_manufacturer:
+ * @device: a #mccr_device_t.
+ *
+ * Get the manufacturer string of the device.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a wide-character constant string.
+ */
+const wchar_t *mccr_device_get_manufacturer (mccr_device_t *device);
+
+/**
+ * mccr_device_get_product:
+ * @device: a #mccr_device_t.
+ *
+ * Get the product string of the device.
+ *
+ * This method doesn't require the device to be open previously with
+ * mccr_device_open().
+ *
+ * Returns: a wide-character constant string.
+ */
+const wchar_t *mccr_device_get_product (mccr_device_t *device);
+
+/* Device open/close */
+
+/**
+ * mccr_device_open:
+ * @device: a #mccr_device_t.
+ *
+ * Open the #mccr_device_t.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_open (mccr_device_t *device);
+
+/**
+ * mccr_device_is_open:
+ * @device: a #mccr_device_t.
+ *
+ * Checks whether the #mccr_device_t is open.
+ *
+ * Returns: true if open, false otherwise.
+ */
+bool mccr_device_is_open (mccr_device_t *device);
+
+/**
+ * mccr_device_close:
+ * @device: a #mccr_device_t.
+ *
+ * Close the #mccr_device_t.
+ */
+void mccr_device_close (mccr_device_t *device);
+
+/* Reset */
+
+/**
+ * mccr_device_reset:
+ * @device: an open #mccr_device_t.
+ *
+ * Request a power cycle of the #mccr_device_t.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_reset (mccr_device_t *device);
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-device-state
+ * @title: Device state
+ * @short_description: Methods to query and manage the device state.
+ *
+ * This section defines methods to query the current device state.
+ * <example>
+ * <title>Reading the DUKPT KSN and counter</title>
+ * <programlisting>
+ *  mccr_status_t  st;
+ *  uint8_t       *ksn;
+ *  size_t         ksn_size, i;
+ *
+ *  if ((st = mccr_device_get_dukpt_ksn_and_counter (device, &ksn, &ksn_size)) != MCCR_STATUS_OK) {
+ *    fprintf (stderr, "error: cannot get DUKPT KSN and counter: %s\n", mccr_status_to_string (st));
+ *    return;
+ *  }
+ *
+ *  printf ("DUKPT KSN and counter: ");
+ *  for (i = 0; i < ksn_size; i++)
+ *    printf ("%02x%s", ksn[i], i < (ksn_size - 1) ? ":" : "");
+ *  printf ("\n");
+ *
+ *  free (ksn);
+ * </programlisting>
+ * </example>
+ */
+
+/* Read properties */
+
+/**
+ * mccr_device_read_software_id:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the Software ID property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_software_id (mccr_device_t  *device,
+                                            char          **out_str);
+
+/**
+ * mccr_device_read_usb_serial_number:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the USB serial number property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_usb_serial_number (mccr_device_t  *device,
+                                                  char          **out_str);
+
+/**
+ * mccr_device_read_polling_interval:
+ * @device: an open #mccr_device_t.
+ * @out_val: output location for the #uint8_t.
+ *
+ * Read the polling interval, in milliseconds.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_polling_interval (mccr_device_t *device,
+                                                 uint8_t       *out_val);
+
+/**
+ * mccr_device_read_device_serial_number:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the device serial number property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_device_serial_number (mccr_device_t  *device,
+                                                     char          **out_str);
+
+/**
+ * mccr_device_read_magnesafe_version_number:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the MagneSafe version number property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_magnesafe_version_number (mccr_device_t  *device,
+                                                         char          **out_str);
+
+/**
+ * mccr_track_state_t:
+ * @MCCR_TRACK_STATE_DISABLED: Track is disabled.
+ * @MCCR_TRACK_STATE_ENABLED: Track is enabled.
+ * @MCCR_TRACK_STATE_ENABLED_REQUIRED: Track is enabled and required (error if blank).
+ *
+ * State of the card track.
+ */
+typedef enum {
+    MCCR_TRACK_STATE_DISABLED,
+    MCCR_TRACK_STATE_ENABLED,
+    MCCR_TRACK_STATE_ENABLED_REQUIRED,
+} mccr_track_state_t;
+
+/**
+ * mccr_track_state_to_string:
+ * @st: a #mccr_track_state_t.
+ *
+ * Gets a description for the given #mccr_track_state_t.
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_track_state_to_string (mccr_track_state_t st);
+
+/**
+ * mccr_device_read_track_id_enable:
+ * @device: an open #mccr_device_t.
+ * @out_aamva_supported: output location for the boolean specifying whether AAMVA cards are supported..
+ * @out_track_1: output location for the #mccr_track_state_t with the track 1 status.
+ * @out_track_2: output location for the #mccr_track_state_t with the track 2 status.
+ * @out_track_3: output location for the #mccr_track_state_t with the track 3 status.
+ *
+ * Read the ISO track mask property string.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_track_id_enable (mccr_device_t      *device,
+                                                bool               *out_aamva_supported,
+                                                mccr_track_state_t *out_track_1,
+                                                mccr_track_state_t *out_track_2,
+                                                mccr_track_state_t *out_track_3);
+
+/**
+ * mccr_device_read_max_packet_size:
+ * @device: an open #mccr_device_t.
+ * @out_val: output location for the #uint8_t.
+ *
+ * Read the maximum packet size, in bytes.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_max_packet_size (mccr_device_t *device,
+                                                uint8_t       *out_val);
+
+/**
+ * mccr_device_read_iso_track_mask:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the ISO track mask property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_iso_track_mask (mccr_device_t  *device,
+                                               char          **out_str);
+
+/**
+ * mccr_device_read_aamva_track_mask:
+ * @device: an open #mccr_device_t.
+ * @out_str: output location for the newly allocated string property.
+ *
+ * Read the AAMVA track mask property string.
+ *
+ * When no longer needed, @out_str should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_read_aamva_track_mask (mccr_device_t  *device,
+                                                 char          **out_str);
+
+/* Get DUKPT KSN and counter */
+
+/**
+ * mccr_device_get_dukpt_ksn_and_counter:
+ * @device: an open #mccr_device_t.
+ * @out_ksn_and_counter: output location for the newly allocated array containing the KSN and counter.
+ * @out_ksn_and_counter_size: output location for the #size_t with the size of @out_ksn_and_counter.
+ *
+ * Get DUKPT KSN and counter.
+ *
+ * The returned array will be 10 bytes long, the output @out_ksn_and_counter_size
+ * is given for convenience.
+ *
+ * When no longer needed, @out_ksn_and_counter should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_get_dukpt_ksn_and_counter (mccr_device_t  *device,
+                                                     uint8_t       **out_ksn_and_counter,
+                                                     size_t         *out_ksn_and_counter_size);
+
+/* Set session id */
+
+/**
+ * mccr_device_set_session_id:
+ * @device: an open #mccr_device_t.
+ * @session_id: a 64-bit value.
+ *
+ * Set the current session id, used by the host to uniquely identify the present
+ * transaction.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_set_session_id (mccr_device_t *device,
+                                          uint64_t       session_id);
+
+/* Get reader state */
+
+/**
+ * mccr_reader_state_t:
+ * @MCCR_READER_STATE_WAIT_ACTIVATE_AUTHENTICATION: Waiting for authenticated mode.
+ * @MCCR_READER_STATE_WAIT_ACTIVATION_REPLY: Waiting for activation challenge reply.
+ * @MCCR_READER_STATE_WAIT_SWIPE: Waiting for swipe.
+ * @MCCR_READER_STATE_WAIT_DELAY: Waiting for anti-hacking timer.
+ *
+ * Current reader state.
+ */
+typedef enum {
+    MCCR_READER_STATE_WAIT_ACTIVATE_AUTHENTICATION,
+    MCCR_READER_STATE_WAIT_ACTIVATION_REPLY,
+    MCCR_READER_STATE_WAIT_SWIPE,
+    MCCR_READER_STATE_WAIT_DELAY,
+} mccr_reader_state_t;
+
+/**
+ * mccr_reader_state_to_string:
+ * @st: a #mccr_reader_state_t.
+ *
+ * Gets a description for the given #mccr_reader_state_t.
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_reader_state_to_string (mccr_reader_state_t st);
+
+/**
+ * mccr_reader_state_antecedent_t:
+ * @MCCR_READER_STATE_ANTECEDENT_POWERED_UP: Powered up.
+ * @MCCR_READER_STATE_ANTECEDENT_GOOD_AUTHENTICATION: Good authentication.
+ * @MCCR_READER_STATE_ANTECEDENT_GOOD_SWIPE: Good swipe.
+ * @MCCR_READER_STATE_ANTECEDENT_BAD_SWIPE: Bad swipe.
+ * @MCCR_READER_STATE_ANTECEDENT_FAILED_AUTHENTICATION: Failed authentication.
+ * @MCCR_READER_STATE_ANTECEDENT_FAILED_DEACTIVATION: Failed deactivation.
+ * @MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_AUTHENTICATION: Authentication timed out.
+ * @MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_SWIPE: Swipe timed out.
+ * @MCCR_READER_STATE_ANTECEDENT_KEY_SYNC_ERROR: Key sync error.
+ *
+ * How the reader got into its current state.
+ */
+typedef enum {
+    MCCR_READER_STATE_ANTECEDENT_POWERED_UP,
+    MCCR_READER_STATE_ANTECEDENT_GOOD_AUTHENTICATION,
+    MCCR_READER_STATE_ANTECEDENT_GOOD_SWIPE,
+    MCCR_READER_STATE_ANTECEDENT_BAD_SWIPE,
+    MCCR_READER_STATE_ANTECEDENT_FAILED_AUTHENTICATION,
+    MCCR_READER_STATE_ANTECEDENT_FAILED_DEACTIVATION,
+    MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_AUTHENTICATION,
+    MCCR_READER_STATE_ANTECEDENT_TIMED_OUT_SWIPE,
+    MCCR_READER_STATE_ANTECEDENT_KEY_SYNC_ERROR,
+} mccr_reader_state_antecedent_t;
+
+/**
+ * mccr_reader_state_antecedent_to_string:
+ * @val: a #mccr_reader_state_antecedent_t.
+ *
+ * Gets a description for the given #mccr_reader_state_antecedent_t.
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_reader_state_antecedent_to_string (mccr_reader_state_antecedent_t val);
+
+/**
+ * mccr_device_get_reader_state:
+ * @device: an open #mccr_device_t.
+ * @out_state: output location for the #mccr_reader_state_t.
+ * @out_antecedent: output location for the #mccr_reader_state_antecedent_t.
+ *
+ * Get current reader state and how the reader reached it.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_get_reader_state (mccr_device_t                  *device,
+                                            mccr_reader_state_t            *out_state,
+                                            mccr_reader_state_antecedent_t *out_antecedent);
+
+/* Get security level */
+
+/**
+ * mccr_security_level_t:
+ * @MCCR_SECURITY_LEVEL_0: Security level 0: all DUKPT keys used.
+ * @MCCR_SECURITY_LEVEL_1: Security level 1: factory test only.
+ * @MCCR_SECURITY_LEVEL_2: Security level 2: least secure user mode, only track data is sent, no magneprint data.
+ * @MCCR_SECURITY_LEVEL_3: Security level 3: encryption of track data, magneprint data and session id enabled.
+ * @MCCR_SECURITY_LEVEL_4: Security level 4: authentication required.
+ *
+ * Security level.
+ */
+typedef enum {
+    MCCR_SECURITY_LEVEL_0,
+    MCCR_SECURITY_LEVEL_1,
+    MCCR_SECURITY_LEVEL_2,
+    MCCR_SECURITY_LEVEL_3,
+    MCCR_SECURITY_LEVEL_4,
+} mccr_security_level_t;
+
+/**
+ * mccr_device_get_security_level:
+ * @device: an open #mccr_device_t.
+ * @out_level: output location for the #mccr_security_level_t.
+ *
+ * Get current security level.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_get_security_level (mccr_device_t         *device,
+                                              mccr_security_level_t *out_level);
+
+/* Get encryption counter */
+
+/**
+ * MCCR_ENCRYPTION_COUNTER_DISABLED:
+ *
+ * Encryption counter is disabled.
+ */
+#define MCCR_ENCRYPTION_COUNTER_DISABLED 0xFFFFFF
+
+/**
+ * MCCR_ENCRYPTION_COUNTER_EXPIRED:
+ *
+ * Encryption counter is expired (all transactions prohibited).
+ */
+#define MCCR_ENCRYPTION_COUNTER_EXPIRED 0x000000
+
+/**
+ * MCCR_ENCRYPTION_COUNTER_MIN:
+ *
+ * Minimum valid encryption counter.
+ */
+#define MCCR_ENCRYPTION_COUNTER_MIN 0x000001
+
+/**
+ * MCCR_ENCRYPTION_COUNTER_MAX:
+ *
+ * Maximum valid encryption counter.
+ */
+#define MCCR_ENCRYPTION_COUNTER_MAX 0x0F4240
+
+/**
+ * mccr_device_get_encryption_counter:
+ * @device: an open #mccr_device_t.
+ * @out_device_serial_number: output location for the newly allocated device serial number string.
+ * @out_encryption_counter: output location for the encryption counter.
+ *
+ * Get device serial number and encryption counter.
+ *
+ * When no longer needed, @out_device_serial_number should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_get_encryption_counter (mccr_device_t  *device,
+                                                  char          **out_device_serial_number,
+                                                  uint32_t       *out_encryption_counter);
+
+/* Magtek Update Token */
+
+/**
+ * mccr_device_get_magtek_update_token:
+ * @device: an open #mccr_device_t.
+ * @out_mut: output location for the array containing the MUT.
+ * @out_mut_size: output location for the #size_t with the size of @out_mut.
+ *
+ * Get Magtek Update Token (MUT).
+ *
+ * The returned array will be 36 bytes long, the output @out_mut_size
+ * is given for convenience.
+ *
+ * When no longer needed, @out_mut should be disposed with free().
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_get_magtek_update_token (mccr_device_t  *device,
+                                                   uint8_t       **out_mut,
+                                                   size_t         *out_mut_size);
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-device-run
+ * @title: Generic device commands
+ * @short_description: Methods to run generic commands on the device state.
+ *
+ * This section defines methods to query the current device state.
+ */
+
+/**
+ * mccr_device_run_generic:
+ * @device: an open #mccr_device_t.
+ * @command_id: the command id.
+ * @blob: binary blob with the command data, or %NULL if @blob_size is 0.
+ * @blob_size: size of @blob.
+ * @out_blob: output location for the response blob, or %NULL if none expected.
+ * @out_blob_size: output location for the #size_t with the size of @out_blob, or %NULL if none expected.
+ *
+ * Run a generic command in the device.
+ *
+ * If the command is privileged, @blob and @blob_size should include the
+ * trailing MAC.
+ *
+ * E.g. if the command to run is '01:06:10:00:B7:6E:44:1F', @command_id would be
+ * 0x01, @blob_size would be 6, and @blob would be '10:00:B7:6E:44:1F' (of which
+ * the first two bytes (10:00) is the real command data and the last 4 bytes
+ * (B7:6E:44:1F) is the MAC for the privileged command).
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_device_run_generic (mccr_device_t  *device,
+                                       uint8_t         command_id,
+                                       const uint8_t  *blob,
+                                       size_t          blob_size,
+                                       uint8_t       **out_blob,
+                                       size_t         *out_blob_size);
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-device-swipe
+ * @title: Swipe reports
+ * @short_description: Methods to read and process swipe reports.
+ *
+ * This section defines methods to read and process swipe reports generated when
+ * the user swipes a credit card in the reader.
+ *
+ * <example>
+ * <title>Reading and processing a swipe report</title>
+ * <programlisting>
+ *  mccr_status_t        st;
+ *  mccr_swipe_report_t *swipe_report;
+ *  uint8_t              track_length;
+ *
+ *  if ((st = mccr_device_wait_swipe_report (device, -1, &swipe_report)) != MCCR_STATUS_OK) {
+ *    fprintf (stderr, "error: cannot get swipe report: %s\n", mccr_status_to_string (st));
+ *    return;
+ *  }
+ *
+ *  printf ("swipe detected\n");
+ *  if ((st = mccr_swipe_report_get_track_1_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
+ *    printf ("  %u bytes detected in track 1\n", track_length);
+ *  if ((st = mccr_swipe_report_get_track_2_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
+ *    printf ("  %u bytes detected in track 2\n", track_length);
+ *  if ((st = mccr_swipe_report_get_track_3_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
+ *    printf ("  %u bytes detected in track 3\n", track_length);
+ *
+ *  mccr_swipe_report_free (swipe_report);
+ * </programlisting></example>
+ */
+
+/**
+ * mccr_swipe_report_t:
+ *
+ * Opaque type representing a swipe report.
+ */
+typedef struct mccr_swipe_report_s mccr_swipe_report_t;
+
+/**
+ * mccr_swipe_report_free:
+ * @report: a #mccr_swipe_report_t.
+ *
+ * Frees a swipe report obtained with mccr_device_wait_swipe_report().
+ */
+void mccr_swipe_report_free (mccr_swipe_report_t *report);
+
+/**
+ * mccr_swipe_track_decode_status_t:
+ * @MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS: Success.
+ * @MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR: Decoding error.
+ *
+ * Flags specifying the status of the decoding in a given track.
+ */
+typedef enum {
+    MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS = 0,
+    MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR   = 1 << 0,
+} mccr_swipe_track_decode_status_t;
+
+/**
+ * mccr_swipe_report_get_track_1_decode_status:
+ * @report: a #mccr_swipe_report_t.
+ * @out_status: output location for a #uint8_t with a bitmask of #mccr_swipe_track_decode_status_t values.
+ *
+ * Gets the track 1 decode status.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_decode_status (mccr_swipe_report_t *report,
+                                                           uint8_t             *out_status);
+
+/**
+ * mccr_swipe_report_get_track_2_decode_status:
+ * @report: a #mccr_swipe_report_t.
+ * @out_status: output location for a #uint8_t with a bitmask of #mccr_swipe_track_decode_status_t values.
+ *
+ * Gets the track 2 decode status.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_decode_status (mccr_swipe_report_t *report,
+                                                           uint8_t             *out_status);
+
+/**
+ * mccr_swipe_report_get_track_3_decode_status:
+ * @report: a #mccr_swipe_report_t.
+ * @out_status: output location for a #uint8_t with a bitmask of #mccr_swipe_track_decode_status_t values.
+ *
+ * Gets the track 3 decode status.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_decode_status (mccr_swipe_report_t *report,
+                                                           uint8_t             *out_status);
+
+/**
+ * mccr_swipe_report_get_track_1_encrypted_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the encrypted data length in track 1.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_encrypted_data_length (mccr_swipe_report_t *report,
+                                                                   uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_2_encrypted_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the encrypted data length in track 2.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_encrypted_data_length (mccr_swipe_report_t *report,
+                                                                   uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_3_encrypted_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the encrypted data length in track 3.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_encrypted_data_length (mccr_swipe_report_t *report,
+                                                                   uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_1_absolute_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the absolute data length in track 1.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_absolute_data_length (mccr_swipe_report_t *report,
+                                                                  uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_2_absolute_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the absolute data length in track 2.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_absolute_data_length (mccr_swipe_report_t *report,
+                                                                  uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_3_absolute_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the absolute data length in track 3.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_absolute_data_length (mccr_swipe_report_t *report,
+                                                                  uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_1_encrypted_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the encrypted data.
+ *
+ * Gets the encrypted data in track 1.
+ *
+ * The returned @out_data is constant and shouldn't be modified by the user.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_encrypted_data (mccr_swipe_report_t  *report,
+                                                            const uint8_t       **out_data);
+
+/**
+ * mccr_swipe_report_get_track_2_encrypted_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the encrypted data.
+ *
+ * Gets the encrypted data in track 2.
+ *
+ * The returned @out_data is constant and shouldn't be modified by the user.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_encrypted_data (mccr_swipe_report_t  *report,
+                                                            const uint8_t       **out_data);
+
+/**
+ * mccr_swipe_report_get_track_3_encrypted_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the encrypted data.
+ *
+ * Gets the encrypted data in track 3.
+ *
+ * The returned @out_data is constant and shouldn't be modified by the user.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_encrypted_data (mccr_swipe_report_t  *report,
+                                                            const uint8_t       **out_data);
+
+/**
+ * mccr_card_encode_type_t:
+ * @MCCR_CARD_ENCODE_TYPE_ISO_ABA: ISO/ABA encode format.
+ * @MCCR_CARD_ENCODE_TYPE_AAMVA: AAMVA encode format.
+ * @MCCR_CARD_ENCODE_TYPE_RESERVED: Reserved.
+ * @MCCR_CARD_ENCODE_TYPE_BLANK: Blank.
+ * @MCCR_CARD_ENCODE_TYPE_OTHER: Other. Non standard track format.
+ * @MCCR_CARD_ENCODE_TYPE_UNDETERMINED: Couldn't be determined.
+ * @MCCR_CARD_ENCODE_TYPE_NONE: No decoding has occurred.
+ *
+ * Type of encoding found in the card.
+ */
+typedef enum {
+    MCCR_CARD_ENCODE_TYPE_ISO_ABA      = 0,
+    MCCR_CARD_ENCODE_TYPE_AAMVA        = 1,
+    MCCR_CARD_ENCODE_TYPE_RESERVED     = 2,
+    MCCR_CARD_ENCODE_TYPE_BLANK        = 3,
+    MCCR_CARD_ENCODE_TYPE_OTHER        = 4,
+    MCCR_CARD_ENCODE_TYPE_UNDETERMINED = 5,
+    MCCR_CARD_ENCODE_TYPE_NONE         = 6,
+} mccr_card_encode_type_t;
+
+/**
+ * mccr_card_encode_type_to_string:
+ * @value: a #mccr_card_encode_type_t.
+ *
+ * Gets a description for the given #mccr_card_encode_type_t.
+ *
+ * Returns: a constant string.
+ */
+const char *mccr_card_encode_type_to_string (mccr_card_encode_type_t value);
+
+/**
+ * mccr_swipe_report_get_card_encode_type:
+ * @report: a #mccr_swipe_report_t.
+ * @out: output location for the #mccr_card_encode_type_t.
+ *
+ * Gets the encrypted data in track 3.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_card_encode_type (mccr_swipe_report_t     *report,
+                                                      mccr_card_encode_type_t *out);
+
+/**
+ * mccr_device_wait_swipe_report:
+ * @device: an open #mccr_device_t.
+ * @timeout_ms: timeout to wait for a swipe report, in milliseconds.
+ * @out_swipe_report: output location to store the newly allocated #mccr_swipe_report_t.
+ *
+ * Waits for a swipe report sent by the device. Blocks during the wait. A
+ * negative @timeout_ms may be given to disable the timeout and wait forever.
+ *
+ * When no longer needed, @out_swipe_report should be disposed with mccr_swipe_report_free().
+ */
+mccr_status_t mccr_device_wait_swipe_report (mccr_device_t        *device,
+                                             int                   timeout_ms,
+                                             mccr_swipe_report_t **out_swipe_report);
+
+/******************************************************************************/
+/**
+ * SECTION: mccr-log
+ * @title: Library logging
+ * @short_description: Methods to redirect library logs to a user-defined output.
+ *
+ * This section defines the methods and types that allow the user to configure
+ * how the library logging is exposed.
+ */
+
+/**
+ * mccr_log_handler_t:
+ * @thread_id: thread ID where the log message was generated.
+ * @message: the log message.
+ *
+ * Logging handler.
+ */
+typedef void (* mccr_log_handler_t) (pthread_t   thread_id,
+                                     const char *message);
+
+/**
+ * mccr_log_set_handler:
+ * @handler: a #mccr_log_handler_t, or %NULL.
+ *
+ * Set logging handler.
+ *
+ * This method would be usually called once before any other operation with the
+ * library, e.g. even before mccr_init().
+ */
+void mccr_log_set_handler (mccr_log_handler_t handler);
+
+#endif /* MCCR_H */

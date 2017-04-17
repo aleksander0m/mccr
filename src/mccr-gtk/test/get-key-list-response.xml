@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Body>
+    <GetKeyListResponse xmlns="http://www.magensa.net/RemoteServices/v2/">
+      <GetKeyListResult xmlns:a="http://schemas.datacontract.org/2004/07/RemoteServicesv2.Core" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <a:CustomerTransactionId>1</a:CustomerTransactionId>
+        <a:MagTranId>835e986c-e7bf-40df-9ffd-fc450a74b498</a:MagTranId>
+        <a:Keys>
+          <a:Key>
+            <a:Description>Currently Loaded Key</a:Description>
+            <a:ID>-1</a:ID>
+            <a:KSI>0000000</a:KSI>
+            <a:KeyName>Current Key</a:KeyName>
+            <a:KeySlotNamePrefix>Prod</a:KeySlotNamePrefix>
+          </a:Key>
+          <a:Key>
+            <a:Description>Default Magensa Key</a:Description>
+            <a:ID>1</a:ID>
+            <a:KSI>9011880</a:KSI>
+            <a:KeyName>Default Magensa Key</a:KeyName>
+            <a:KeySlotNamePrefix>Prod</a:KeySlotNamePrefix>
+          </a:Key>
+          <a:Key>
+            <a:Description>Some Other Test Key</a:Description>
+            <a:ID>5</a:ID>
+            <a:KSI>1234567</a:KSI>
+            <a:KeyName>AABBCC Key</a:KeyName>
+            <a:KeySlotNamePrefix>Prod</a:KeySlotNamePrefix>
+          </a:Key>
+        </a:Keys>
+      </GetKeyListResult>
+    </GetKeyListResponse>
+  </s:Body>
+</s:Envelope>

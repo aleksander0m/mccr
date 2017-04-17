@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.0 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkBox" id="box">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkBox" id="basic-box">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin_left">10</property>
+        <property name="margin_right">10</property>
+        <property name="margin_top">10</property>
+        <property name="margin_bottom">10</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <child>
+          <object class="GtkBox" id="basic-box-status">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="basic-label-status">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="label" translatable="yes">waiting to do something</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="basic-label-status-error">
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="label" translatable="yes">error detected</property>
+                <property name="xalign">0</property>
+                <attributes>
+                  <attribute name="foreground" value="#efef29292929"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="basic-frame-track-1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkAlignment" id="basic-frame-alignment-track-1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <property name="right_padding">10</property>
+                <child>
+                  <object class="GtkGrid" id="basic-frame-grid-track-1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="row_spacing">10</property>
+                    <property name="column_spacing">10</property>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-orig-hex-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Original:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">The original track 1 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-dec-hex-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Decrypted:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 1, in HEX format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-ascii-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">ASCII:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-ascii-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 1, in ASCII format. Otherwise, the original contents of track 1 in ASCII format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="basic-frame-label-track-1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Track 1:</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="basic-frame-track-2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkAlignment" id="basic-frame-alignment-track-2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <property name="right_padding">10</property>
+                <child>
+                  <object class="GtkGrid" id="basic-frame-grid-track-2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="row_spacing">10</property>
+                    <property name="column_spacing">10</property>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-orig-hex-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Original:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">The original track 2 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-dec-hex-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Decrypted:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 2, in HEX format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-ascii-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">ASCII:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-ascii-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 2, in ASCII format. Otherwise, the original contents of track 2 in ASCII format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="basic-frame-label-track-2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Track 2:</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="basic-frame-track-3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkAlignment" id="basic-frame-alignment-track-3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <property name="right_padding">10</property>
+                <child>
+                  <object class="GtkGrid" id="basic-frame-grid-track-3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="row_spacing">10</property>
+                    <property name="column_spacing">10</property>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-orig-hex-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Original:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">The original track 3 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-dec-hex-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Decrypted:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 3, in HEX format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <attributes>
+                          <attribute name="font-desc" value="Monospace 9"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-ascii-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">ASCII:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-ascii-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 3, in ASCII format. Otherwise, the original contents of track 3 in ASCII format.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="basic-frame-label-track-3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Track 3:</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="basic-footer">
+            <property name="can_focus">False</property>
+            <property name="spacing">15</property>
+            <child>
+              <object class="GtkBox" id="basic-footer-left">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkLabel" id="basic-decryption-label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Decryption:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSwitch" id="basic-decryption-switch">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Enable or disable decryption based on the specified BDK.</property>
+                    <property name="active">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="basic-footer-center">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkLabel" id="basic-bdk-label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">BDK:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="basic-bdk-entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">BDK to use to derive the decryption keys, required to decrypt tracks when security level &gt; 2.</property>
+                    <property name="text" translatable="yes">01 23 45 67 89 ab cd ef fe dc ba 98 76 54 32 10</property>
+                    <property name="xalign">0.5</property>
+                    <property name="placeholder_text" translatable="yes">Base derivation key (10 bytes)</property>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="basic-footer-right">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkLabel" id="basic-key-variant-label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Key variant:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="basic-key-variant-combobox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="tooltip_text" translatable="yes">Key variant to use in the decryption process. By default, the readers use the PIN variant.</property>
+                    <property name="active_id">pin</property>
+                    <items>
+                      <item id="pin" translatable="yes">PIN</item>
+                      <item id="mac-request" translatable="yes">MAC request</item>
+                      <item id="mac-response" translatable="yes">MAC response</item>
+                      <item id="data-request" translatable="yes">Data request</item>
+                      <item id="data-response" translatable="yes">Data response</item>
+                    </items>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+  </object>
+</interface>
