@@ -58,12 +58,12 @@ int main (int argc, char **argv)
   }
 
   printf ("swipe detected\n");
-  if ((st = mccr_swipe_report_get_track_1_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
-    printf ("  %u bytes detected in track 1\n", track_length);
-  if ((st = mccr_swipe_report_get_track_2_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
-    printf ("  %u bytes detected in track 2\n", track_length);
-  if ((st = mccr_swipe_report_get_track_3_encrypted_data_length (swipe_report, &track_length)) != MCCR_STATUS_OK)
-    printf ("  %u bytes detected in track 3\n", track_length);
+  if ((st = mccr_swipe_report_get_track_1_encrypted_data_length (swipe_report, &track_length)) == MCCR_STATUS_OK)
+    printf ("  bytes detected in track 1: %u\n", track_length);
+  if ((st = mccr_swipe_report_get_track_2_encrypted_data_length (swipe_report, &track_length)) == MCCR_STATUS_OK)
+    printf ("  bytes detected in track 2: %u\n", track_length);
+  if ((st = mccr_swipe_report_get_track_3_encrypted_data_length (swipe_report, &track_length)) == MCCR_STATUS_OK)
+    printf ("  bytes detected in track 3: %u\n", track_length);
 
   st = EXIT_SUCCESS;
 
