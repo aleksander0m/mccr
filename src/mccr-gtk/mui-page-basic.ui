@@ -93,13 +93,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-orig-hex-track-1">
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-1-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">The original track 1 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">B8 97 34 12 D3 48 CB 91 AF 6B 06 BB 02 C9 4B E0 27 0B 5C 91 08 FF 86 88 54 87 E7 97 04 CE 1D B9 99 99 FC 22 B1 0F A1 00 32 AB 54 44 71 7A 5D 2F B9 EE AC BB 8B D3 1C 08 13 69 2B 65 5F 89 29 66 CB A6 22 96 82 00 57 0B 11 2A B9 AB 4C 1C F0 1C</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -129,13 +129,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-dec-hex-track-1">
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-1-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 1, in HEX format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">25 42 31 31 31 31 32 32 32 32 33 33 33 33 34 34 34 34 5e 4d 4f 52 47 41 44 4f 2f 41 2e 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 5e 32 31 31 32 32 31 32 33 34 35 36 37 30 30 30 30 30 30 30 30 30 30 39 37 33 30 30 30 30 30 30 3f 23 23</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -165,13 +165,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-ascii-track-1">
+                      <object class="GtkLabel" id="basic-label-ascii-track-1-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 1, in ASCII format. Otherwise, the original contents of track 1 in ASCII format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">%B1111222233334444^MORGADO/A.                ^2112212345670000000000973000000?##-</property>
                         <property name="wrap">True</property>
                         <property name="wrap_mode">char</property>
                         <property name="width_chars">50</property>
@@ -238,13 +238,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-orig-hex-track-2">
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-2-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">The original track 2 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">E8 73 D8 15 56 CF D6 78 49 B7 E3 94 17 8B 3F 90 A0 BA BF DA 2D ED AC 8E 12 1E 4F 4C 89 31 5E 14 04 37 DA 0C E0 97 D1 4D</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -274,13 +274,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-dec-hex-track-2">
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-2-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 2, in HEX format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">3b 31 31 31 31 32 32 32 32 33 33 33 33 34 34 34 34 3d 32 31 31 32 32 31 32 33 34 35 36 37 39 37 33 30 30 30 30 30 3f 23</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -310,13 +310,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-ascii-track-2">
+                      <object class="GtkLabel" id="basic-label-ascii-track-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 2, in ASCII format. Otherwise, the original contents of track 2 in ASCII format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">;1111222233334444=21122123456797300000?#</property>
                         <property name="wrap">True</property>
                         <property name="wrap_mode">char</property>
                         <property name="width_chars">50</property>
@@ -383,13 +383,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-orig-hex-track-3">
+                      <object class="GtkLabel" id="basic-label-orig-hex-track-3-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">The original track 3 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">8A 89 FE 57 20 A6 BE 08 79 63 1A C2 8E 0C 03 25 49 4D B5 CE C2 2A 61 F4 FA 2A E8 B9 4E 29 E2 EE 48 C0 D1 88 8E F3 C1 E0 7C 44 C0 14 80 07 FA 30 6E AF E6 07 9A 01 34 26 37 E2 08 53 BB 25 77 99 36 EB 12 0A E1 92 45 E0 5B B8 96 1E EE 6E 9B 98 BC F7 C3 21 E1 95 46 B7 6C C6 DB 9E 88 DE 30 42 8A 63 CD B2 82 C8 35 B0 C4 84 6B 27 4E 66 BC 70</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -419,13 +419,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-dec-hex-track-3">
+                      <object class="GtkLabel" id="basic-label-dec-hex-track-3-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 3, in HEX format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">3b 30 31 31 31 31 31 32 32 32 32 33 33 33 33 34 34 34 34 3d 3d 39 37 33 30 30 30 30 30 30 30 30 30 37 30 30 31 30 32 32 30 35 31 31 32 32 32 34 30 30 30 30 30 32 31 31 32 30 3d 3d 3d 37 32 39 34 35 32 31 30 30 30 30 30 30 30 30 30 30 30 30 30 30 31 31 39 30 33 31 38 37 30 36 38 39 32 30 30 30 30 30 30 30 30 30 30 3f 23 23 23 23 23 23</property>
                         <property name="wrap">True</property>
                         <property name="width_chars">50</property>
                         <property name="xalign">0</property>
@@ -455,13 +455,13 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="basic-label-ascii-track-3">
+                      <object class="GtkLabel" id="basic-label-ascii-track-3-a">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">If security level &gt; 2 and decryption is ON, the decrypted contents of track 3, in ASCII format. Otherwise, the original contents of track 3 in ASCII format.</property>
                         <property name="valign">center</property>
                         <property name="vexpand">True</property>
-                        <property name="label" translatable="yes">N/A</property>
+                        <property name="label" translatable="yes">;011111222233334444==9730000000007001022051122240000021120===72945210000000000000011903187068920000000000?######</property>
                         <property name="wrap">True</property>
                         <property name="wrap_mode">char</property>
                         <property name="width_chars">50</property>

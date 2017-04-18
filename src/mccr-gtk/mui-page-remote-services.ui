@@ -227,7 +227,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkScrolledWindow" id="remote-services-results-scrolled-window">
+      <object class="GtkScrolledWindow" id="remote-services-results-scrolled-window-a">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="margin_left">18</property>
@@ -235,14 +235,184 @@
         <property name="margin_bottom">18</property>
         <property name="hscrollbar_policy">never</property>
         <child>
-          <object class="GtkViewport" id="remote-services-results-viewport">
+          <object class="GtkViewport" id="remote-services-results-viewport-a">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkListBox" id="remote-services-results-listbox">
+              <object class="GtkListBox" id="remote-services-results-listbox-a">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="selection_mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow" id="remote-services-results-listbox-row-1">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <child>
+                      <object class="GtkBox" id="remote-services-results-listbox-row-box-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="spacing">18</property>
+                        <child>
+                          <object class="GtkBox" id="remote-services-results-listbox-row-box-left-1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="halign">end</property>
+                            <property name="valign">center</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkImage" id="remote-services-results-listbox-row-box-left-image-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="icon_name">object-select-symbolic</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="remote-services-results-listbox-row-box-center-label-1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold"&gt;Default test key&lt;/span&gt;
+	&lt;span style="italic"&gt;Default key used for testing&lt;/span&gt;
+	ksi: 9010010</property>
+                            <property name="use_markup">True</property>
+                            <property name="xalign">0</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="remote-services-results-listbox-row-box-right-1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="remote-services-results-listbox-row-box-right-label-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBoxRow" id="remote-services-results-listbox-row-2">
+                    <property name="width_request">100</property>
+                    <property name="height_request">80</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <child>
+                      <object class="GtkBox" id="remote-services-results-listbox-row-box-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="spacing">18</property>
+                        <child>
+                          <object class="GtkBox" id="remote-services-results-listbox-row-box-left-2">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="halign">end</property>
+                            <property name="valign">center</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkImage" id="remote-services-results-listbox-row-box-left-image-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="icon_name">object-select-symbolic</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="remote-services-results-listbox-row-box-center-label-2">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;span weight="bold"&gt;Test key 2&lt;/span&gt;
+	&lt;span style="italic"&gt;Some other available key&lt;/span&gt;
+	ksi: 9011223</property>
+                            <property name="use_markup">True</property>
+                            <property name="xalign">0</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="remote-services-results-listbox-row-box-right-2">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="remote-services-results-listbox-row-box-right-label-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -333,5 +503,19 @@
         <property name="position">4</property>
       </packing>
     </child>
+  </object>
+  <object class="GtkSizeGroup" id="sizegroup-1">
+    <widgets>
+      <widget name="remote-services-results-listbox-row-box-left-1"/>
+      <widget name="remote-services-results-listbox-row-box-right-1"/>
+      <widget name="remote-services-results-listbox-row-box-left-2"/>
+      <widget name="remote-services-results-listbox-row-box-right-2"/>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup" id="sizegroup-2">
+    <widgets>
+      <widget name="remote-services-results-listbox-row-box-center-label-1"/>
+      <widget name="remote-services-results-listbox-row-box-center-label-2"/>
+    </widgets>
   </object>
 </interface>

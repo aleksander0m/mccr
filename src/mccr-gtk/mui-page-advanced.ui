@@ -656,14 +656,14 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="advanced-label-mut">
+                  <object class="GtkLabel" id="advanced-label-mut-a">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">36 bytes sized token required to perform key updates.</property>
                     <property name="label" translatable="yes">AA:BB:CC:DD:EE:FF:00:00:00:01
-AA:BB:CC:FF:00:00:00:01
-AA:BB:CC:FF:00:00:00:01
-AA:BB:CC:FF</property>
+AA:BB:CC:FF:00:00:00:01:00:01
+AA:BB:CC:FF:00:00:00:01:00:01
+AA:BB:CC:FF:00:01</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -875,12 +875,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-decoding-1">
+                              <object class="GtkLabel" id="advanced-label-decoding-1-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Result of the decoding operation in track 1.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">success</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -888,12 +888,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-length-1">
+                              <object class="GtkLabel" id="advanced-label-data-length-1-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Size of the data read from the card in track 1.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">80 bytes</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -901,14 +901,14 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-1">
+                              <object class="GtkLabel" id="advanced-label-data-1-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">The original track 1 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                                 <property name="halign">start</property>
                                 <property name="valign">center</property>
                                 <property name="hexpand">True</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">B8 97 34 12 D3 48 CB 91 AF 6B 06 BB 02 C9 4B E0 27 0B 5C 91 08 FF 86 88 54 87 E7 97 04 CE 1D B9 99 99 FC 22 B1 0F A1 00 32 AB 54 44 71 7A 5D 2F B9 EE AC BB 8B D3 1C 08 13 69 2B 65 5F 89 29 66 CB A6 22 96 82 00 57 0B 11 2A B9 AB 4C 1C F0 1C</property>
                                 <property name="wrap">True</property>
                                 <property name="width_chars">50</property>
                                 <property name="xalign">0</property>
@@ -1008,12 +1008,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-decoding-2">
+                              <object class="GtkLabel" id="advanced-label-decoding-2-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Result of the decoding operation in track 2.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">success</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1021,12 +1021,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-length-2">
+                              <object class="GtkLabel" id="advanced-label-data-length-2-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Size of the data read from the card in track 2.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">40 bytes</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1034,14 +1034,14 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-2">
+                              <object class="GtkLabel" id="advanced-label-data-2-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">The original track 2 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                                 <property name="halign">start</property>
                                 <property name="valign">center</property>
                                 <property name="hexpand">True</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">E8 73 D8 15 56 CF D6 78 49 B7 E3 94 17 8B 3F 90 A0 BA BF DA 2D ED AC 8E 12 1E 4F 4C 89 31 5E 14 04 37 DA 0C E0 97 D1 4D</property>
                                 <property name="wrap">True</property>
                                 <property name="width_chars">50</property>
                                 <property name="xalign">0</property>
@@ -1141,12 +1141,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-decoding-3">
+                              <object class="GtkLabel" id="advanced-label-decoding-3-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Result of the decoding operation in track 3.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">success</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1154,12 +1154,12 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-length-3">
+                              <object class="GtkLabel" id="advanced-label-data-length-3-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">Size of the data read from the card in track 3.</property>
                                 <property name="halign">start</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">112 bytes</property>
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
@@ -1167,14 +1167,14 @@ AA:BB:CC:FF</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="advanced-label-data-3">
+                              <object class="GtkLabel" id="advanced-label-data-3-a">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="tooltip_text" translatable="yes">The original track 3 data as returned by the reader, in HEX format. It will be encrypted if security level is &gt; 2.</property>
                                 <property name="halign">start</property>
                                 <property name="valign">center</property>
                                 <property name="hexpand">True</property>
-                                <property name="label" translatable="yes">N/A</property>
+                                <property name="label" translatable="yes">8A 89 FE 57 20 A6 BE 08 79 63 1A C2 8E 0C 03 25 49 4D B5 CE C2 2A 61 F4 FA 2A E8 B9 4E 29 E2 EE 48 C0 D1 88 8E F3 C1 E0 7C 44 C0 14 80 07 FA 30 6E AF E6 07 9A 01 34 26 37 E2 08 53 BB 25 77 99 36 EB 12 0A E1 92 45 E0 5B B8 96 1E EE 6E 9B 98 BC F7 C3 21 E1 95 46 B7 6C C6 DB 9E 88 DE 30 42 8A 63 CD B2 82 C8 35 B0 C4 84 6B 27 4E 66 BC 70</property>
                                 <property name="wrap">True</property>
                                 <property name="width_chars">50</property>
                                 <property name="xalign">0</property>

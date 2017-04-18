@@ -161,6 +161,7 @@ reload_track_decryption (MuiPageBasic      *self,
 
     /* Get original hex from label */
     original = gtk_label_get_text (GTK_LABEL (self->priv->common_item_labels[common_item_orig_hex]));
+    original = "n/a";
     if (g_strcmp0 (original, "n/a") == 0)
         goto out;
 

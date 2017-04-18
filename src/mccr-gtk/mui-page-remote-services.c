@@ -1318,12 +1318,12 @@ typedef struct {
 } SettingsField;
 
 static const SettingsField settings_fields[SETTINGS_FIELD_ID_LAST] = {
-    [SETTINGS_FIELD_ID_RS_URL]           = { "remote-service", "url",                     "https://..." },
-    [SETTINGS_FIELD_ID_RS_CUSTOMER_CODE] = { "remote-service", "customer-code",           "" },
-    [SETTINGS_FIELD_ID_RS_USERNAME]      = { "remote-service", "username",                "" },
-    [SETTINGS_FIELD_ID_RS_PASSWORD]      = { "remote-service", "password",                "" },
-    [SETTINGS_FIELD_ID_RS_BILLING_LABEL] = { "remote-service", "billing-label",           "" },
-    [SETTINGS_FIELD_ID_RS_CUSTOMER_TRID] = { "remote-service", "customer-transaction-id", "" },
+    [SETTINGS_FIELD_ID_RS_URL]           = { "remote-service", "url",                     "https://rainbow.aleksander.es/SCRAv2.svc" },
+    [SETTINGS_FIELD_ID_RS_CUSTOMER_CODE] = { "remote-service", "customer-code",           "AM" },
+    [SETTINGS_FIELD_ID_RS_USERNAME]      = { "remote-service", "username",                "aleksander" },
+    [SETTINGS_FIELD_ID_RS_PASSWORD]      = { "remote-service", "password",                "super secret" },
+    [SETTINGS_FIELD_ID_RS_BILLING_LABEL] = { "remote-service", "billing-label",           "Testing" },
+    [SETTINGS_FIELD_ID_RS_CUSTOMER_TRID] = { "remote-service", "customer-transaction-id", "1" },
 };
 
 static void
