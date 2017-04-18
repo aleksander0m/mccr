@@ -1,4 +1,4 @@
-AC_DEFUN([MAGNESAFE_COMPILER_WARNINGS],
+AC_DEFUN([MCCR_COMPILER_WARNINGS],
 [AC_ARG_ENABLE(more-warnings,
 	AS_HELP_STRING([--enable-more-warnings], [Possible values: no/yes/error]),
 	set_more_warnings="$enableval",set_more_warnings=error)
