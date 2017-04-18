@@ -21,6 +21,23 @@ information support, including track data decryption if the Base Derivation Key
 is known. The program also allows performing device setting changes and key
 updates using MagTek's *Magensa* remote service system.
 
+------
+Basic application view showing swipe information, including decrypted contents if
+supported:
+
+<p align="center"><img src="data/mccr-gtk-basic.png" width="450"></p>
+
+------
+Advanced application view including device properties and status information:
+
+<p align="center"><img src="data/mccr-gtk-advanced.png" width="450"></p>
+
+------
+Remote services view, enabling the user to update device keys or perform
+configuration commands:
+
+<p align="center"><img src="data/mccr-gtk-remote-services.png" width="450"></p>
+
 ## Building
 
 ### libmccr and mccr-cli options and dependencies
