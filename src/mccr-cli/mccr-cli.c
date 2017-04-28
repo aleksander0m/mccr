@@ -278,10 +278,10 @@ run_set_session_id (mccr_device_t *device,
                        bool                      ascii)                                                                          \
     {                                                                                                                            \
         mccr_status_t  st;                                                                                                       \
-        uint8_t             status;                                                                                              \
-        const uint8_t      *data;                                                                                                \
-        uint8_t             length;                                                                                              \
-        char               *aux;                                                                                                 \
+        uint8_t        status;                                                                                                   \
+        const uint8_t *data;                                                                                                     \
+        uint8_t        length;                                                                                                   \
+        char          *aux;                                                                                                      \
                                                                                                                                  \
         if ((st = mccr_swipe_report_get_track_##N##_decode_status (report, &status)) != MCCR_STATUS_OK) {                        \
             fprintf (stderr, "error: cannot get track %u decode status: %s\n", N, mccr_status_to_string (st));                   \
@@ -322,6 +322,23 @@ run_set_session_id (mccr_device_t *device,
             printf ("\tabsolute data length: unknown\n");                                                                        \
         else                                                                                                                     \
             printf ("\tabsolute data length: %u bytes\n", length);                                                               \
+                                                                                                                                 \
+        if ((st = mccr_swipe_report_get_track_##N##_masked_data_length (report, &length)) != MCCR_STATUS_OK) {                   \
+            fprintf (stderr, "error: cannot get track %u masked data length: %s\n", N, mccr_status_to_string (st));              \
+            return;                                                                                                              \
+        }                                                                                                                        \
+                                                                                                                                 \
+        if ((st = mccr_swipe_report_get_track_##N##_masked_data (report, &data)) != MCCR_STATUS_OK) {                            \
+            fprintf (stderr, "error: cannot get track %u masked data: %s\n", N, mccr_status_to_string (st));                     \
+            return;                                                                                                              \
+        }                                                                                                                        \
+                                                                                                                                 \
+        printf ("\tmasked data length:   %u bytes\n", length);                                                                   \
+        if (length) {                                                                                                            \
+            aux = strascii (data, length);                                                                                       \
+            printf ("\tmasked data:          %s\n", aux);                                                                        \
+            free (aux);                                                                                                          \
+        }                                                                                                                        \
     }
 
 PROCESS_TRACK(1)
