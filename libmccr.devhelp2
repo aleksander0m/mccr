@@ -66,15 +66,21 @@
     <keyword type="function" name="mccr_swipe_report_get_track_1_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-decode-status"/>
     <keyword type="function" name="mccr_swipe_report_get_track_2_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-decode-status"/>
     <keyword type="function" name="mccr_swipe_report_get_track_3_decode_status ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-decode-status"/>
-    <keyword type="function" name="mccr_swipe_report_get_track_1_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data-length"/>
-    <keyword type="function" name="mccr_swipe_report_get_track_2_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data-length"/>
-    <keyword type="function" name="mccr_swipe_report_get_track_3_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data-length"/>
     <keyword type="function" name="mccr_swipe_report_get_track_1_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-absolute-data-length"/>
     <keyword type="function" name="mccr_swipe_report_get_track_2_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-absolute-data-length"/>
     <keyword type="function" name="mccr_swipe_report_get_track_3_absolute_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-absolute-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_encrypted_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data-length"/>
     <keyword type="function" name="mccr_swipe_report_get_track_1_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-encrypted-data"/>
     <keyword type="function" name="mccr_swipe_report_get_track_2_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-encrypted-data"/>
     <keyword type="function" name="mccr_swipe_report_get_track_3_encrypted_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-encrypted-data"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_masked_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-masked-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_masked_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-masked-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_masked_data_length ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-masked-data-length"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_1_masked_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-1-masked-data"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_2_masked_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-2-masked-data"/>
+    <keyword type="function" name="mccr_swipe_report_get_track_3_masked_data ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-track-3-masked-data"/>
     <keyword type="function" name="mccr_card_encode_type_to_string ()" link="libmccr-Swipe-reports.html#mccr-card-encode-type-to-string"/>
     <keyword type="function" name="mccr_swipe_report_get_card_encode_type ()" link="libmccr-Swipe-reports.html#mccr-swipe-report-get-card-encode-type"/>
     <keyword type="function" name="mccr_device_wait_swipe_report ()" link="libmccr-Swipe-reports.html#mccr-device-wait-swipe-report"/>
