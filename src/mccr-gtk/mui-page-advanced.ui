@@ -922,6 +922,71 @@ AA:BB:CC:FF</property>
                                 <property name="top_attach">2</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-key-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked length:</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-key-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked (hex):</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">Size of the masked data read from the card in track 1.</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">N/A</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">The masked track 1 data as returned by the reader, in HEX format.</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                                <property name="hexpand">True</property>
+                                <property name="label" translatable="yes">N/A</property>
+                                <property name="wrap">True</property>
+                                <property name="width_chars">50</property>
+                                <property name="xalign">0</property>
+                                <property name="yalign">0</property>
+                                <attributes>
+                                  <attribute name="font-desc" value="Monospace 9"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -1055,6 +1120,71 @@ AA:BB:CC:FF</property>
                                 <property name="top_attach">2</property>
                               </packing>
                             </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-key-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked length:</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-key-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked (hex):</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">Size of the masked data read from the card in track 2.</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">N/A</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-2">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">The masked track 2 data as returned by the reader, in HEX format.</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                                <property name="hexpand">True</property>
+                                <property name="label" translatable="yes">N/A</property>
+                                <property name="wrap">True</property>
+                                <property name="width_chars">50</property>
+                                <property name="xalign">0</property>
+                                <property name="yalign">0</property>
+                                <attributes>
+                                  <attribute name="font-desc" value="Monospace 9"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -1186,6 +1316,71 @@ AA:BB:CC:FF</property>
                               <packing>
                                 <property name="left_attach">1</property>
                                 <property name="top_attach">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-key-3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked length:</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-key-3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">Masked (hex):</property>
+                                <attributes>
+                                  <attribute name="weight" value="bold"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">4</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-length-3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">Size of the masked data read from the card in track 3.</property>
+                                <property name="halign">start</property>
+                                <property name="label" translatable="yes">N/A</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="advanced-label-masked-data-3">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="tooltip_text" translatable="yes">The masked track 3 data as returned by the reader, in HEX format.</property>
+                                <property name="halign">start</property>
+                                <property name="valign">center</property>
+                                <property name="hexpand">True</property>
+                                <property name="label" translatable="yes">N/A</property>
+                                <property name="wrap">True</property>
+                                <property name="width_chars">50</property>
+                                <property name="xalign">0</property>
+                                <property name="yalign">0</property>
+                                <attributes>
+                                  <attribute name="font-desc" value="Monospace 9"/>
+                                </attributes>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">4</property>
                               </packing>
                             </child>
                           </object>

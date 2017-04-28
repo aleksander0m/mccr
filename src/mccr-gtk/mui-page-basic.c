@@ -38,10 +38,13 @@ G_DEFINE_TYPE (MuiPageBasic, mui_page_basic, MUI_TYPE_PAGE)
 typedef enum {
     INFO_PAGE_BASIC_ITEM_TRACK_1_DEC_HEX,
     INFO_PAGE_BASIC_ITEM_TRACK_1_ASCII,
+    INFO_PAGE_BASIC_ITEM_TRACK_1_MASKED,
     INFO_PAGE_BASIC_ITEM_TRACK_2_DEC_HEX,
     INFO_PAGE_BASIC_ITEM_TRACK_2_ASCII,
+    INFO_PAGE_BASIC_ITEM_TRACK_2_MASKED,
     INFO_PAGE_BASIC_ITEM_TRACK_3_DEC_HEX,
     INFO_PAGE_BASIC_ITEM_TRACK_3_ASCII,
+    INFO_PAGE_BASIC_ITEM_TRACK_3_MASKED,
     INFO_PAGE_BASIC_ITEM_LAST,
 } InfoPageBasicItem;
 
@@ -341,6 +344,41 @@ dukpt_ksn_and_counter_assigned_to_swipe (MuiPageBasic *self)
 }
 
 /******************************************************************************/
+/* Masked data */
+
+static void
+masked_data_updated (MuiPageBasic      *self,
+                     const gchar       *track,
+                     MuiProcessorItem   item,
+                     InfoPageBasicItem  basic_item,
+                     const gchar       *value)
+{
+    GtkWidget *label;
+    gsize      buffer_size;
+    gssize     bin_size;
+    guint8    *bin = NULL;
+    gchar     *ascii = NULL;
+
+    label = self->priv->basic_item_labels[basic_item];
+    g_assert (GTK_IS_LABEL (label));
+
+    /* Build original bin */
+    buffer_size = 1 + (strlen (value) / 2);
+    bin = (guint8 *) g_malloc0 (buffer_size);
+    if ((bin_size = strbin (value, bin, buffer_size)) < 0) {
+        g_warning ("[%s] couldn't convert hex string '%s' to binary", track, value);
+        goto out;
+    }
+
+    ascii = strascii (bin, bin_size);
+    gtk_label_set_text (GTK_LABEL (label), ascii);
+
+out:
+    g_free (bin);
+    g_free (ascii);
+}
+
+/******************************************************************************/
 /* Item reporting */
 
 static void
@@ -374,6 +412,15 @@ report_item (MuiPage          *_self,
             break;
         case MUI_PROCESSOR_ITEM_SWIPE_STARTED:
             reset_all_track_decryption (self);
+            break;
+        case MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA:
+            masked_data_updated (self, "track 1", MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA, INFO_PAGE_BASIC_ITEM_TRACK_1_MASKED, value);
+            break;
+        case MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA:
+            masked_data_updated (self, "track 2", MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA, INFO_PAGE_BASIC_ITEM_TRACK_2_MASKED, value);
+            break;
+        case MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA:
+            masked_data_updated (self, "track 3", MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA, INFO_PAGE_BASIC_ITEM_TRACK_3_MASKED, value);
             break;
         case MUI_PROCESSOR_ITEM_SWIPE_FINISHED:
             dukpt_ksn_and_counter_assigned_to_swipe (self);
@@ -444,10 +491,13 @@ mui_page_basic_new (void)
     /* Swipe info labels */
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_1_DEC_HEX]  = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-dec-hex-track-1"));
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_1_ASCII]    = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-ascii-track-1"));
+    self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_1_MASKED]   = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-masked-track-1"));
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_2_DEC_HEX]  = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-dec-hex-track-2"));
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_2_ASCII]    = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-ascii-track-2"));
+    self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_2_MASKED]   = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-masked-track-2"));
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_3_DEC_HEX]  = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-dec-hex-track-3"));
     self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_3_ASCII]    = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-ascii-track-3"));
+    self->priv->basic_item_labels[INFO_PAGE_BASIC_ITEM_TRACK_3_MASKED]   = GTK_WIDGET (gtk_builder_get_object (builder, "basic-label-masked-track-3"));
 
     /* Decryption options footer */
 

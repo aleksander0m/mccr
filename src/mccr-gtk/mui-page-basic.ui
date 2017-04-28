@@ -183,6 +183,40 @@
                         <property name="top_attach">2</property>
                       </packing>
                     </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-masked-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Masked:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-masked-track-1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 the masked contents of track 1, as reported by the reader.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -328,6 +362,40 @@
                         <property name="top_attach">2</property>
                       </packing>
                     </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-masked-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Masked:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-masked-track-2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 the masked contents of track 2, as reported by the reader.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -471,6 +539,40 @@
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="top_attach">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-frame-key-masked-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="valign">center</property>
+                        <property name="label" translatable="yes">Masked:</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="basic-label-masked-track-3">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">If security level &gt; 2 the masked contents of track 3, as reported by the reader.</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">True</property>
+                        <property name="label" translatable="yes">N/A</property>
+                        <property name="wrap">True</property>
+                        <property name="wrap_mode">char</property>
+                        <property name="width_chars">50</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">3</property>
                       </packing>
                     </child>
                   </object>

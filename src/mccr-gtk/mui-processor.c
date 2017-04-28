@@ -96,12 +96,18 @@ static const gchar *processor_item_str[] = {
     [MUI_PROCESSOR_ITEM_TRACK_1_DECODE_STATUS]         = "track-1-decode-status",
     [MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA_LENGTH] = "track-1-encrypted-data-length",
     [MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA]        = "track-1-encrypted-data",
+    [MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA_LENGTH]    = "track-1-masked-data-length",
+    [MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA]           = "track-1-masked-data",
     [MUI_PROCESSOR_ITEM_TRACK_2_DECODE_STATUS]         = "track-2-decode-status",
     [MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA_LENGTH] = "track-2-encrypted-data-length",
     [MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA]        = "track-2-encrypted-data",
+    [MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA_LENGTH]    = "track-2-masked-data-length",
+    [MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA]           = "track-2-masked-data",
     [MUI_PROCESSOR_ITEM_TRACK_3_DECODE_STATUS]         = "track-3-decode-status",
     [MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA_LENGTH] = "track-3-encrypted-data-length",
     [MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA]        = "track-3-encrypted-data",
+    [MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA_LENGTH]    = "track-3-masked-data-length",
+    [MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA]           = "track-3-masked-data",
     [MUI_PROCESSOR_ITEM_SWIPE_FINISHED]                = "swipe-finished",
 };
 
@@ -507,46 +513,85 @@ process_track (MuiProcessor          *self,
                mccr_status_t       (* get_decode_status)         (mccr_swipe_report_t *report, uint8_t        *status),
                mccr_status_t       (* get_encrypted_data_length) (mccr_swipe_report_t *report, uint8_t        *status),
                mccr_status_t       (* get_encrypted_data)        (mccr_swipe_report_t *report, const uint8_t **out_data),
+               mccr_status_t       (* get_masked_data_length)    (mccr_swipe_report_t *report, uint8_t        *status),
+               mccr_status_t       (* get_masked_data)           (mccr_swipe_report_t *report, const uint8_t **out_data),
                MuiProcessorItem       decode_status_item,
                MuiProcessorItem       encrypted_data_length_item,
-               MuiProcessorItem       encrypted_data_item)
+               MuiProcessorItem       encrypted_data_item,
+               MuiProcessorItem       masked_data_length_item,
+               MuiProcessorItem       masked_data_item)
 {
-    mccr_status_t  st;
-    uint8_t        status;
-    const uint8_t *data;
-    uint8_t        length;
-    char          *decode_status         = NULL;
-    char          *encrypted_data_length = NULL;
-    char          *encrypted_data        = NULL;
+    mccr_status_t st;
+    uint8_t            status;
 
-    if ((st = get_decode_status (report, &status)) != MCCR_STATUS_OK)
-        g_warning ("Cannot get track decode status: %s", mccr_status_to_string (st));
-    else if (status == MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS)
-        decode_status = g_strdup ("success");
-    else if (status & MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR)
-        decode_status = g_strdup ("error");
-    else
-        decode_status = g_strdup_printf ("unknown status (0x%02x)", status);
+    /* Track decode status */
+    {
+        char *decode_status = NULL;
 
-    if ((st = get_encrypted_data_length (report, &length)) != MCCR_STATUS_OK)
-        g_warning ("Cannot get track encrypted data length: %s", mccr_status_to_string (st));
-    else
-        encrypted_data_length = g_strdup_printf ("%u bytes", length);
-
-    if (length > 0) {
-        if ((st = get_encrypted_data (report, &data)) != MCCR_STATUS_OK)
-            g_warning ("Cannot get track data: %s", mccr_status_to_string (st));
+        if ((st = get_decode_status (report, &status)) != MCCR_STATUS_OK)
+            g_warning ("Cannot get track decode status: %s", mccr_status_to_string (st));
+        else if (status == MCCR_SWIPE_TRACK_DECODE_STATUS_SUCCESS)
+            decode_status = g_strdup ("success");
+        else if (status & MCCR_SWIPE_TRACK_DECODE_STATUS_ERROR)
+            decode_status = g_strdup ("error");
         else
-            encrypted_data = strhex (data, length, " ");
+            decode_status = g_strdup_printf ("unknown status (0x%02x)", status);
+
+        report_item (self, decode_status_item, decode_status ? decode_status : "n/a");
+        g_free (decode_status);
     }
 
-    report_item (self, decode_status_item,         decode_status         ? decode_status         : "n/a");
-    report_item (self, encrypted_data_length_item, encrypted_data_length ? encrypted_data_length : "n/a");
-    report_item (self, encrypted_data_item,        encrypted_data        ? encrypted_data        : "n/a");
+    /* Encrypted data */
+    {
+        const uint8_t *data;
+        uint8_t        length;
+        char          *encrypted_data_length = NULL;
+        char          *encrypted_data        = NULL;
 
-    g_free (decode_status);
-    g_free (encrypted_data_length);
-    g_free (encrypted_data);
+        if ((st = get_encrypted_data_length (report, &length)) != MCCR_STATUS_OK)
+            g_warning ("Cannot get track encrypted data length: %s", mccr_status_to_string (st));
+        else
+            encrypted_data_length = g_strdup_printf ("%u bytes", length);
+
+        if (length > 0) {
+            if ((st = get_encrypted_data (report, &data)) != MCCR_STATUS_OK)
+                g_warning ("Cannot get track encrypted data: %s", mccr_status_to_string (st));
+            else
+                encrypted_data = strhex (data, length, " ");
+        }
+
+        report_item (self, encrypted_data_length_item, encrypted_data_length ? encrypted_data_length : "n/a");
+        report_item (self, encrypted_data_item,        encrypted_data        ? encrypted_data        : "n/a");
+
+        g_free (encrypted_data_length);
+        g_free (encrypted_data);
+     }
+
+    /* Masked data */
+    {
+        const uint8_t *data;
+        uint8_t        length;
+        char          *masked_data_length = NULL;
+        char          *masked_data        = NULL;
+
+        if ((st = get_masked_data_length (report, &length)) != MCCR_STATUS_OK)
+            g_warning ("Cannot get track masked data length: %s", mccr_status_to_string (st));
+        else
+            masked_data_length = g_strdup_printf ("%u bytes", length);
+
+        if (length > 0) {
+            if ((st = get_masked_data (report, &data)) != MCCR_STATUS_OK)
+                g_warning ("Cannot get track masked data: %s", mccr_status_to_string (st));
+            else
+                masked_data = strhex (data, length, " ");
+        }
+
+        report_item (self, masked_data_length_item, masked_data_length ? masked_data_length : "n/a");
+        report_item (self, masked_data_item,        masked_data        ? masked_data        : "n/a");
+
+        g_free (masked_data_length);
+        g_free (masked_data);
+    }
 }
 
 static gboolean
@@ -586,27 +631,39 @@ run_wait_swipe (MuiProcessor  *self,
                    mccr_swipe_report_get_track_1_decode_status,
                    mccr_swipe_report_get_track_1_encrypted_data_length,
                    mccr_swipe_report_get_track_1_encrypted_data,
+                   mccr_swipe_report_get_track_1_masked_data_length,
+                   mccr_swipe_report_get_track_1_masked_data,
                    MUI_PROCESSOR_ITEM_TRACK_1_DECODE_STATUS,
                    MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA_LENGTH,
-                   MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA);
+                   MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA,
+                   MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA_LENGTH,
+                   MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA);
 
     process_track (self,
                    report,
                    mccr_swipe_report_get_track_2_decode_status,
                    mccr_swipe_report_get_track_2_encrypted_data_length,
                    mccr_swipe_report_get_track_2_encrypted_data,
+                   mccr_swipe_report_get_track_2_masked_data_length,
+                   mccr_swipe_report_get_track_2_masked_data,
                    MUI_PROCESSOR_ITEM_TRACK_2_DECODE_STATUS,
                    MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA_LENGTH,
-                   MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA);
+                   MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA,
+                   MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA_LENGTH,
+                   MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA);
 
     process_track (self,
                    report,
                    mccr_swipe_report_get_track_3_decode_status,
                    mccr_swipe_report_get_track_3_encrypted_data_length,
                    mccr_swipe_report_get_track_3_encrypted_data,
+                   mccr_swipe_report_get_track_3_masked_data_length,
+                   mccr_swipe_report_get_track_3_masked_data,
                    MUI_PROCESSOR_ITEM_TRACK_3_DECODE_STATUS,
                    MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA_LENGTH,
-                   MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA);
+                   MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA,
+                   MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA_LENGTH,
+                   MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA);
 
     /* We finished reporting a swipe */
     report_item (self, MUI_PROCESSOR_ITEM_SWIPE_FINISHED, NULL);
