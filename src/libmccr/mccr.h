@@ -982,6 +982,78 @@ mccr_status_t mccr_swipe_report_get_track_3_encrypted_data (mccr_swipe_report_t 
                                                             const uint8_t       **out_data);
 
 /**
+ * mccr_swipe_report_get_track_1_masked_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the masked data length in track 1.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_masked_data_length (mccr_swipe_report_t *report,
+                                                                uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_2_masked_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the masked data length in track 2.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_masked_data_length (mccr_swipe_report_t *report,
+                                                                uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_3_masked_data_length:
+ * @report: a #mccr_swipe_report_t.
+ * @out_length: output location for a #uint8_t with the length.
+ *
+ * Gets the masked data length in track 3.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_masked_data_length (mccr_swipe_report_t *report,
+                                                                uint8_t             *out_length);
+
+/**
+ * mccr_swipe_report_get_track_1_masked_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the masked data.
+ *
+ * Gets the masked data in track 1.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_1_masked_data (mccr_swipe_report_t  *report,
+                                                         const uint8_t       **out_data);
+
+/**
+ * mccr_swipe_report_get_track_2_masked_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the masked data.
+ *
+ * Gets the masked data in track 2.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_2_masked_data (mccr_swipe_report_t  *report,
+                                                         const uint8_t       **out_data);
+
+/**
+ * mccr_swipe_report_get_track_3_masked_data:
+ * @report: a #mccr_swipe_report_t.
+ * @out_data: output location for a pointer to the masked data.
+ *
+ * Gets the masked data in track 3.
+ *
+ * Returns: a #mccr_status_t.
+ */
+mccr_status_t mccr_swipe_report_get_track_3_masked_data (mccr_swipe_report_t  *report,
+                                                         const uint8_t       **out_data);
+
+/**
  * mccr_card_encode_type_t:
  * @MCCR_CARD_ENCODE_TYPE_ISO_ABA: ISO/ABA encode format.
  * @MCCR_CARD_ENCODE_TYPE_AAMVA: AAMVA encode format.

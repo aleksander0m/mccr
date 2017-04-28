@@ -954,6 +954,44 @@ swipe_report_get_usage (mccr_swipe_report_t  *report,
             *out_data = usage;                                          \
                                                                         \
         return MCCR_STATUS_OK;                                          \
+    }                                                                   \
+                                                                        \
+    mccr_status_t                                                       \
+    mccr_swipe_report_get_track_##N##_masked_data_length (mccr_swipe_report_t *report, \
+                                                          uint8_t             *out_length) \
+    {                                                                   \
+        mccr_status_t  st;                                              \
+        const uint8_t *usage;                                           \
+                                                                        \
+        if ((st = swipe_report_get_usage (report,                       \
+                                          MCCR_INPUT_USAGE_ID_TRACK_##N##_MASKED_DATA_LENGTH, \
+                                          1,                            \
+                                          &usage)) != MCCR_STATUS_OK)   \
+            return st;                                                  \
+                                                                        \
+        if (out_length)                                                 \
+            *out_length = *usage;                                       \
+                                                                        \
+        return MCCR_STATUS_OK;                                          \
+    }                                                                   \
+                                                                        \
+    mccr_status_t                                                       \
+    mccr_swipe_report_get_track_##N##_masked_data (mccr_swipe_report_t  *report, \
+                                                   const uint8_t       **out_data) \
+    {                                                                   \
+        mccr_status_t  st;                                              \
+        const uint8_t *usage;                                           \
+                                                                        \
+        if ((st = swipe_report_get_usage (report,                       \
+                                          MCCR_INPUT_USAGE_ID_TRACK_##N##_MASKED_DATA, \
+                                          0,                            \
+                                          &usage)) != MCCR_STATUS_OK)   \
+            return st;                                                  \
+                                                                        \
+        if (out_data)                                                   \
+            *out_data = usage;                                          \
+                                                                        \
+        return MCCR_STATUS_OK;                                          \
     }
 
 TRACK_API (1)
