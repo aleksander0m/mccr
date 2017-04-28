@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.68])
 
-AC_INIT([mccr], [1.0.3], [aleksander@aleksander.es])
+AC_INIT([mccr], [1.0.4], [aleksander@aleksander.es])
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
