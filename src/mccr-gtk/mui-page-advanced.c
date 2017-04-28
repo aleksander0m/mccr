@@ -148,12 +148,18 @@ mui_page_advanced_new (void)
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_1_DECODE_STATUS]         = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-decoding-1"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA_LENGTH] = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-length-1"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_1_ENCRYPTED_DATA]        = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-1"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA_LENGTH]    = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-length-1"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_1_MASKED_DATA]           = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-1"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_2_DECODE_STATUS]         = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-decoding-2"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA_LENGTH] = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-length-2"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_2_ENCRYPTED_DATA]        = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-2"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA_LENGTH]    = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-length-2"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_2_MASKED_DATA]           = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-2"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_3_DECODE_STATUS]         = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-decoding-3"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA_LENGTH] = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-length-3"));
     self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_3_ENCRYPTED_DATA]        = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-data-3"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA_LENGTH]    = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-length-3"));
+    self->priv->common_item_labels[MUI_PROCESSOR_ITEM_TRACK_3_MASKED_DATA]           = GTK_WIDGET (gtk_builder_get_object (builder, "advanced-label-masked-data-3"));
 
     g_object_unref (builder);
 
