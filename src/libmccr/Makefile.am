@@ -41,3 +41,7 @@ include_HEADERS = \
 
 pkgconfigdir   = $(libdir)/pkgconfig
 pkgconfig_DATA = mccr.pc
+
+EXTRA_DIST = \
+	mccr.h.in \
+	$(NULL)
