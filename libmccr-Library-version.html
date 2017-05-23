@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Library version: libmccr Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<link rel="home" href="index.html" title="libmccr Reference Manual">
+<link rel="up" href="pt01.html" title="Part I. MCCR library core utilities">
+<link rel="prev" href="libmccr-Library-logging.html" title="Library logging">
+<link rel="next" href="pt02.html" title="Part II. MCCR device">
+<meta name="generator" content="GTK-Doc V1.25.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libmccr-Library-version.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pt01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libmccr-Library-logging.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pt02.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libmccr-Library-version"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libmccr-Library-version.top_of_page"></a>Library version</span></h2>
+<p>Library version — Methods and types to report library version.</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libmccr-Library-version.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="libmccr-Library-version.html#MCCR-CHECK-VERSION:CAPS" title="MCCR_CHECK_VERSION()">MCCR_CHECK_VERSION</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">unsigned <span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Library-version.html#mccr-get-major-version" title="mccr_get_major_version ()">mccr_get_major_version</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">unsigned <span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Library-version.html#mccr-get-minor-version" title="mccr_get_minor_version ()">mccr_get_minor_version</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">unsigned <span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="libmccr-Library-version.html#mccr-get-micro-version" title="mccr_get_micro_version ()">mccr_get_micro_version</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Library-version.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Library-version.html#MCCR-MAJOR-VERSION:CAPS" title="MCCR_MAJOR_VERSION">MCCR_MAJOR_VERSION</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Library-version.html#MCCR-MINOR-VERSION:CAPS" title="MCCR_MINOR_VERSION">MCCR_MINOR_VERSION</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libmccr-Library-version.html#MCCR-MICRO-VERSION:CAPS" title="MCCR_MICRO_VERSION">MCCR_MICRO_VERSION</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Library-version.description"></a><h2>Description</h2>
+<p>This section defines the types and methods exposed by the library to report
+its own version both at build time and at run time.</p>
+</div>
+<div class="refsect1">
+<a name="libmccr-Library-version.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="MCCR-CHECK-VERSION:CAPS"></a><h3>MCCR_CHECK_VERSION()</h3>
+<pre class="programlisting">#define             MCCR_CHECK_VERSION(major,minor,micro)</pre>
+<div class="refsect3">
+<a name="MCCR-CHECK-VERSION.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>major</p></td>
+<td class="parameter_description"><p>major version (e.g. 1 for version 1.2.5)</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>minor</p></td>
+<td class="parameter_description"><p>minor version (e.g. 2 for version 1.2.5)</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>micro</p></td>
+<td class="parameter_description"><p>micro version (e.g. 5 for version 1.2.5)</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="MCCR-CHECK-VERSION.returns"></a><h4>Returns</h4>
+<p> <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the version of the libmccr header file
+is the same as or newer than the given version.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-get-major-version"></a><h3>mccr_get_major_version ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>
+mccr_get_major_version (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Runtime check of the major library version.</p>
+<div class="refsect3">
+<a name="mccr-get-major-version.returns"></a><h4>Returns</h4>
+<p> the major library version.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-get-minor-version"></a><h3>mccr_get_minor_version ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>
+mccr_get_minor_version (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Runtime check of the minor library version.</p>
+<div class="refsect3">
+<a name="mccr-get-minor-version.returns"></a><h4>Returns</h4>
+<p> the minor library version.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="mccr-get-micro-version"></a><h3>mccr_get_micro_version ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>
+mccr_get_micro_version (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Runtime check of the micro library version.</p>
+<div class="refsect3">
+<a name="mccr-get-micro-version.returns"></a><h4>Returns</h4>
+<p> the micro library version.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libmccr-Library-version.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="MCCR-MAJOR-VERSION:CAPS"></a><h3>MCCR_MAJOR_VERSION</h3>
+<pre class="programlisting">#define MCCR_MAJOR_VERSION (1)
+</pre>
+<p>Evaluates to the major version number of libmccr which this source
+is compiled against.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-MINOR-VERSION:CAPS"></a><h3>MCCR_MINOR_VERSION</h3>
+<pre class="programlisting">#define MCCR_MINOR_VERSION (2)
+</pre>
+<p>Evaluates to the minor version number of libmccr which this source
+is compiled against.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MCCR-MICRO-VERSION:CAPS"></a><h3>MCCR_MICRO_VERSION</h3>
+<pre class="programlisting">#define MCCR_MICRO_VERSION (0)
+</pre>
+<p>Evaluates to the micro version number of libmccr which this source
+compiled against.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.25.1</div>
+</body>
+</html>

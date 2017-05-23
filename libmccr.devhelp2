@@ -4,6 +4,7 @@
     <sub name="MCCR library core utilities" link="pt01.html">
       <sub name="Core library operations" link="libmccr-Core-library-operations.html"/>
       <sub name="Library logging" link="libmccr-Library-logging.html"/>
+      <sub name="Library version" link="libmccr-Library-version.html"/>
     </sub>
     <sub name="MCCR device" link="pt02.html">
       <sub name="Device object" link="libmccr-Device-object.html"/>
@@ -20,6 +21,13 @@
     <keyword type="enum" name="enum mccr_status_t" link="libmccr-Core-library-operations.html#mccr-status-t"/>
     <keyword type="function" name="mccr_log_handler_t ()" link="libmccr-Library-logging.html#mccr-log-handler-t"/>
     <keyword type="function" name="mccr_log_set_handler ()" link="libmccr-Library-logging.html#mccr-log-set-handler"/>
+    <keyword type="macro" name="MCCR_CHECK_VERSION()" link="libmccr-Library-version.html#MCCR-CHECK-VERSION:CAPS"/>
+    <keyword type="function" name="mccr_get_major_version ()" link="libmccr-Library-version.html#mccr-get-major-version"/>
+    <keyword type="function" name="mccr_get_minor_version ()" link="libmccr-Library-version.html#mccr-get-minor-version"/>
+    <keyword type="function" name="mccr_get_micro_version ()" link="libmccr-Library-version.html#mccr-get-micro-version"/>
+    <keyword type="macro" name="MCCR_MAJOR_VERSION" link="libmccr-Library-version.html#MCCR-MAJOR-VERSION:CAPS"/>
+    <keyword type="macro" name="MCCR_MINOR_VERSION" link="libmccr-Library-version.html#MCCR-MINOR-VERSION:CAPS"/>
+    <keyword type="macro" name="MCCR_MICRO_VERSION" link="libmccr-Library-version.html#MCCR-MICRO-VERSION:CAPS"/>
     <keyword type="function" name="mccr_enumerate_devices ()" link="libmccr-Device-object.html#mccr-enumerate-devices"/>
     <keyword type="function" name="mccr_device_new ()" link="libmccr-Device-object.html#mccr-device-new"/>
     <keyword type="function" name="mccr_device_ref ()" link="libmccr-Device-object.html#mccr-device-ref"/>
