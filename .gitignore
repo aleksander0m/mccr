@@ -31,6 +31,7 @@ Makefile.in
 /m4/lt~obsolete.m4
 /m4/gtk-doc.m4
 
+/src/libmccr/mccr.h
 /src/libmccr/mccr.pc
 
 /src/mccr-cli/mccr-cli

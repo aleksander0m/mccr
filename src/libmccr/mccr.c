@@ -1091,3 +1091,24 @@ mccr_exit (void)
         mccr_log ("hidapi support finalization failed");
     mccr_log ("mccr support finished");
 }
+
+/******************************************************************************/
+/* Library version info */
+
+unsigned int
+mccr_get_major_version (void)
+{
+    return MCCR_MAJOR_VERSION;
+}
+
+unsigned int
+mccr_get_minor_version (void)
+{
+    return MCCR_MINOR_VERSION;
+}
+
+unsigned int
+mccr_get_micro_version (void)
+{
+    return MCCR_MICRO_VERSION;
+}

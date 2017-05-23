@@ -1,7 +1,14 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.68])
 
-AC_INIT([mccr], [1.1.0], [aleksander@aleksander.es])
+dnl The mccr version number
+m4_define([mccr_major_version], [1])
+m4_define([mccr_minor_version], [1])
+m4_define([mccr_micro_version], [0])
+m4_define([mccr_version],
+          [mccr_major_version.mccr_minor_version.mccr_micro_version])
+
+AC_INIT([mccr], [mccr_version], [aleksander@aleksander.es])
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -26,6 +33,16 @@ LT_INIT
 
 dnl Specific warnings to always use
 MCCR_COMPILER_WARNINGS
+
+dnl Version stuff
+MCCR_MAJOR_VERSION=mccr_major_version
+MCCR_MINOR_VERSION=mccr_minor_version
+MCCR_MICRO_VERSION=mccr_micro_version
+MCCR_VERSION=mccr_version
+AC_SUBST(MCCR_MAJOR_VERSION)
+AC_SUBST(MCCR_MINOR_VERSION)
+AC_SUBST(MCCR_MICRO_VERSION)
+AC_SUBST(MCCR_VERSION)
 
 dnl Plaforms
 AM_CONDITIONAL(OS_WIN32, [test "$glib_native_win32" = "yes"])
@@ -179,6 +196,7 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/common/Makefile
                  src/libmccr/Makefile
+                 src/libmccr/mccr.h
                  src/libmccr/mccr.pc
                  src/mccr-cli/Makefile
                  src/mccr-gtk/Makefile

@@ -46,6 +46,7 @@
     <title>MCCR library core utilities</title>
     <xi:include href="xml/mccr-core.xml"/>
     <xi:include href="xml/mccr-log.xml"/>
+    <xi:include href="xml/mccr-version.xml"/>
   </part>
 
   <part>

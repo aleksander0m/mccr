@@ -13,6 +13,17 @@ mccr_log_set_handler
 </SECTION>
 
 <SECTION>
+<FILE>mccr-version</FILE>
+MCCR_MAJOR_VERSION
+MCCR_MINOR_VERSION
+MCCR_MICRO_VERSION
+MCCR_CHECK_VERSION
+mccr_get_major_version
+mccr_get_minor_version
+mccr_get_micro_version
+</SECTION>
+
+<SECTION>
 <FILE>mccr-device</FILE>
 mccr_device_t
 mccr_enumerate_devices
