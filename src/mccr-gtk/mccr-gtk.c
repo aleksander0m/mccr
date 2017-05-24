@@ -31,6 +31,7 @@
 #include <glib/gprintf.h>
 
 #include <mccr.h>
+#include <dukpt.h>
 
 #include "mui-app.h"
 
@@ -61,8 +62,14 @@ static void
 print_version (void)
 {
     g_print ("\n"
-             PROGRAM_NAME " " PROGRAM_VERSION "\n"
-             "Copyright (2014-2015) Zodiac Inflight Innovations\n"
+             PROGRAM_NAME " " PROGRAM_VERSION "\n");
+    g_print ("  Built against libmccr %u.%u.%u\n", MCCR_MAJOR_VERSION, MCCR_MINOR_VERSION, MCCR_MICRO_VERSION);
+    g_print ("  Running with libmmcr %u.%u.%u\n", mccr_get_major_version (), mccr_get_minor_version (), mccr_get_micro_version ());
+
+    g_print ("  Built against libdukpt %u.%u.%u\n", DUKPT_MAJOR_VERSION, DUKPT_MINOR_VERSION, DUKPT_MICRO_VERSION);
+    g_print ("  Running with libdukpt %u.%u.%u\n", dukpt_get_major_version (), dukpt_get_minor_version (), dukpt_get_micro_version ());
+
+    g_print ("Copyright (2016-2017) Zodiac Inflight Innovations\n"
              "\n");
 }
 

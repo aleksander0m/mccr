@@ -433,8 +433,10 @@ static void
 print_version (void)
 {
     printf ("\n"
-            PROGRAM_NAME " " PROGRAM_VERSION "\n"
-            "Copyright (2016) Zodiac Inflight Innovations\n"
+            PROGRAM_NAME " " PROGRAM_VERSION "\n");
+    printf ("  Built against libmccr %u.%u.%u\n", MCCR_MAJOR_VERSION, MCCR_MINOR_VERSION, MCCR_MICRO_VERSION);
+    printf ("  Running with libmmcr %u.%u.%u\n", mccr_get_major_version (), mccr_get_minor_version (), mccr_get_micro_version ());
+    printf ("Copyright (2016-2017) Zodiac Inflight Innovations\n"
             "\n");
 }
 
