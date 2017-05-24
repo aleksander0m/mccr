@@ -4,7 +4,7 @@ AC_PREREQ([2.68])
 dnl The mccr version number
 m4_define([mccr_major_version], [1])
 m4_define([mccr_minor_version], [2])
-m4_define([mccr_micro_version], [2])
+m4_define([mccr_micro_version], [3])
 m4_define([mccr_version],
           [mccr_major_version.mccr_minor_version.mccr_micro_version])
 
