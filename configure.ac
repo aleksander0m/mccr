@@ -115,7 +115,7 @@ AM_CONDITIONAL([HIDAPI_BACKEND_RAW], [test "$hidapi_backend" = "raw"])
 
 dnl require libdukpt, GTK+, GLib/GIO, GUdev, libxml and Soup to build the UI
 
-DUKPT_REQUIRED=1.0
+DUKPT_REQUIRED=1.2
 GTK_REQUIRED=3.10
 GLIB_REQUIRED=2.40
 GUDEV_REQUIRED=147
