@@ -44,14 +44,6 @@ AC_SUBST(MCCR_MINOR_VERSION)
 AC_SUBST(MCCR_MICRO_VERSION)
 AC_SUBST(MCCR_VERSION)
 
-dnl Plaforms
-AM_CONDITIONAL(OS_WIN32, [test "$glib_native_win32" = "yes"])
-AM_CONDITIONAL(OS_WIN32_X64, [test "$LIB_EXE_MACHINE_FLAG" = "X64"])
-AM_CONDITIONAL(OS_UNIX, [test "$glib_native_win32" != "yes"])
-AM_CONDITIONAL(OS_LINUX, [test "$glib_os_linux" = "yes"])
-AM_CONDITIONAL(OS_CARBON, [test "$glib_have_carbon" = "yes"])
-AM_CONDITIONAL(OS_COCOA, [test "$glib_have_cocoa" = "yes"])
-
 dnl Require hidapi
 PKG_CHECK_MODULES(HIDAPI_USB, [hidapi-libusb], [have_hidapi_usb=yes], [have_hidapi_usb=no])
 PKG_CHECK_MODULES(HIDAPI_RAW, [hidapi-hidraw], [have_hidapi_raw=yes], [have_hidapi_raw=no])
