@@ -232,7 +232,7 @@ static void
 bdk_entry_activated (MuiPageBasic *self)
 {
     const gchar   *str;
-    gsize          data_size;
+    gssize         data_size;
     PangoAttrList *attrs;
 
     /* BDK changed, we need to reload BDK, IPEK, decryption key and decrypted text */
