@@ -29,6 +29,7 @@
 #include <malloc.h>
 #include <assert.h>
 #include <string.h>
+#include <pthread.h>
 
 #include <hidapi.h>
 
@@ -46,10 +47,6 @@
 
 #if defined HIDAPI_BACKEND_RAW
 # include "mccr-raw.h"
-#endif
-
-#if !defined __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4
-# error GCC built-in atomic method support is required
 #endif
 
 #define MAGTEK_VID 0x0801
@@ -82,6 +79,9 @@ mccr_status_to_string (mccr_status_t st)
 /* Device enumeration and disposal */
 
 struct mccr_device_s {
+#if !defined __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4
+    pthread_mutex_t reflock;
+#endif
     volatile int      refcount;
     char             *path;
     uint16_t          vid;
@@ -115,6 +115,10 @@ device_new (struct hid_device_info *hid_info)
     mccr_log ("  product:        %ls",    hid_info->product_string);
     mccr_log ("  interface:      %d",     hid_info->interface_number);
 
+#if !defined __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4
+    pthread_mutex_init (&device->reflock, NULL);
+#endif
+
     device->refcount      = 1;
     device->vid           = hid_info->vendor_id;
     device->pid           = hid_info->product_id;
@@ -135,8 +139,19 @@ void
 mccr_device_unref (mccr_device_t *device)
 {
     assert (device);
+
+#if !defined __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4
+    pthread_mutex_lock (&device->reflock);
+    if (--device->refcount > 0) {
+        pthread_mutex_unlock (&device->reflock);
+        return;
+    }
+    pthread_mutex_unlock (&device->reflock);
+    pthread_mutex_destroy (&device->reflock);
+#else
     if (__sync_fetch_and_sub (&device->refcount, 1) != 1)
         return;
+#endif
 
     assert (!device->hid);
     assert (!device->feature_report);
@@ -153,7 +168,13 @@ mccr_device_t *
 mccr_device_ref (mccr_device_t *device)
 {
     assert (device);
+#if !defined __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4
+    pthread_mutex_lock (&device->reflock);
+    device->refcount++;
+    pthread_mutex_unlock (&device->reflock);
+#else
     __sync_fetch_and_add (&device->refcount, 1);
+#endif
     return device;
 }
 
