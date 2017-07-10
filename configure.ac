@@ -44,6 +44,34 @@ AC_SUBST(MCCR_MINOR_VERSION)
 AC_SUBST(MCCR_MICRO_VERSION)
 AC_SUBST(MCCR_VERSION)
 
+dnl Checks for builtin atomic operations
+AC_CACHE_CHECK([for lock-free atomic intrinsics], mccr_cv_atomic_lock_free, [
+  AC_TRY_LINK([],
+                 [volatile int atomic = 2;\
+                  __sync_bool_compare_and_swap (&atomic, 2, 3);],
+                 [mccr_cv_atomic_lock_free=yes],
+                 [mccr_cv_atomic_lock_free=no])
+  if test "$mccr_cv_atomic_lock_free" = "no"; then
+    SAVE_CFLAGS="${CFLAGS}"
+    CFLAGS="-march=i486"
+    AC_TRY_LINK([],
+                   [volatile int atomic = 2;\
+                    __sync_bool_compare_and_swap (&atomic, 2, 3);],
+                   [AC_MSG_ERROR([MCCR must be built with -march=i486 or later.])],
+                   [])
+    CFLAGS="${SAVE_CFLAGS}"
+  fi
+])
+
+# Some compilers support atomic operations but do not define
+# __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4, like clang
+if test x"$mccr_cv_atomic_lock_free" = xyes; then
+  AC_TRY_LINK([],
+                 [__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;],
+                 [],
+                 [AC_DEFINE(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4, 1, [ compiler supports atomic operations])])
+fi
+
 dnl Require hidapi
 PKG_CHECK_MODULES(HIDAPI_USB, [hidapi-libusb], [have_hidapi_usb=yes], [have_hidapi_usb=no])
 PKG_CHECK_MODULES(HIDAPI_RAW, [hidapi-hidraw], [have_hidapi_raw=yes], [have_hidapi_raw=no])
