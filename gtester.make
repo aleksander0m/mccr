@@ -30,12 +30,8 @@ check_DATA =
 TESTS =
 
 # test-nonrecursive: run tests only in cwd
-if OS_UNIX
 test-nonrecursive: ${TEST_PROGS}
 	@test -z "${TEST_PROGS}" || G_TEST_SRCDIR="$(abs_srcdir)" G_TEST_BUILDDIR="$(abs_builddir)" G_DEBUG=gc-friendly MALLOC_CHECK_=2 MALLOC_PERTURB_=$$(($${RANDOM:-256} % 256)) ${GTESTER} --verbose ${TEST_PROGS}
-else
-test-nonrecursive:
-endif
 
 .PHONY: test-nonrecursive
 
@@ -106,11 +102,6 @@ check-local: test-nonrecursive
 # we use test -z "$(TEST_PROGS)" above, so make sure we have no extra whitespace...
 TEST_PROGS += $(strip $(test_programs) $(test_scripts) $(uninstalled_test_programs) $(uninstalled_test_scripts) \
                       $(dist_test_scripts) $(dist_uninstalled_test_scripts))
-
-if OS_WIN32
-TESTS += $(test_programs) $(test_scripts) $(uninstalled_test_programs) $(uninstalled_test_scripts) \
-         $(dist_test_scripts) $(dist_uninstalled_test_scripts)
-endif
 
 # Note: build even the installed-only targets during 'make check' to ensure that they still work.
 # We need to do a bit of trickery here and manage disting via EXTRA_DIST instead of using dist_ prefixes to
