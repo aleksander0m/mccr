@@ -10,6 +10,7 @@
 #define COMMON_H
 
 #include <stdint.h>
+#include <sys/types.h>
 
 char *strhex (const void *mem,
               size_t      size,
