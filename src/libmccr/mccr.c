@@ -50,6 +50,7 @@
 #endif
 
 #define MAGTEK_VID 0x0801
+#define ZII_VID    0x2e81
 
 /******************************************************************************/
 /* Status */
@@ -178,63 +179,80 @@ mccr_device_ref (mccr_device_t *device)
     return device;
 }
 
+static uint16_t supported_vids[] = { MAGTEK_VID, ZII_VID };
+
 mccr_device_t **
 mccr_enumerate_devices (void)
 {
-    struct hid_device_info  *devs, *cur_dev;
-    mccr_device_t          **devices = NULL;
-    unsigned int             n_devices, i;
+    mccr_device_t **devices = NULL;
+    unsigned int    total_devices = 0;
+    unsigned int    v;
 
-    /* Enumerate all HID devices with the expected VID */
-    devs = hid_enumerate (MAGTEK_VID, 0x0);
-    if (!devs) {
-        mccr_log ("couldn't enumerate HID devices");
-        return NULL;
+    for (v = 0; v < (sizeof (supported_vids) / sizeof (supported_vids[0])); v++) {
+        mccr_device_t          **aux;
+        struct hid_device_info  *devs, *cur_dev;
+        unsigned int             n_devices, i;
+
+        /* Enumerate all HID devices with the expected VID */
+        devs = hid_enumerate (supported_vids[v], 0x0);
+        if (!devs) {
+            mccr_log ("no HID devices with vid 0x%04x", supported_vids[v]);
+            continue;
+        }
+
+        /* Count number of devices enumerated */
+        for (n_devices = 0, cur_dev = devs; cur_dev; cur_dev = cur_dev->next, n_devices++);
+        mccr_log ("found %u HID devices with vid 0x%04x during enumeration", n_devices, supported_vids[v]);
+        if (n_devices == 0)
+            goto next_vid;
+
+        /* Create the devices, one per HID info */
+        aux = (mccr_device_t **) realloc (devices, (total_devices + n_devices + 1) * sizeof (mccr_device_t *));
+        if (!aux) {
+            mccr_log ("memory management error");
+            goto next_vid;
+        }
+        devices = aux;
+
+        for (i = 0, cur_dev = devs; cur_dev; cur_dev = cur_dev->next, i++) {
+            mccr_log ("device %u/%u at %s with vid 0x%04x", i + 1, n_devices, cur_dev->path, supported_vids[v]);
+            devices[total_devices + i] = device_new (cur_dev);
+        }
+        devices[total_devices + n_devices] = NULL;
+        total_devices += n_devices;
+
+    next_vid:
+        hid_free_enumeration (devs);
     }
 
-    /* Count number of devices enumerated */
-    for (n_devices = 0, cur_dev = devs; cur_dev; cur_dev = cur_dev->next, n_devices++);
-    mccr_log ("found %u devices during enumeration", n_devices);
-
-    if (n_devices == 0)
-        goto out;
-
-    /* Create the devices, one per HID info */
-    devices = (mccr_device_t **) calloc (n_devices + 1, sizeof (mccr_device_t *));
-    if (!devices)
-        goto out;
-
-    for (i = 0, cur_dev = devs; cur_dev; cur_dev = cur_dev->next, i++) {
-        mccr_log ("device %u/%u at %s", i + 1, n_devices, cur_dev->path);
-        devices[i] = device_new (cur_dev);
-    }
-
-out:
-    hid_free_enumeration (devs);
     return devices;
 }
 
 mccr_device_t *
 mccr_device_new (const char *path)
 {
-    struct hid_device_info *devs, *cur_dev;
-    mccr_device_t          *device = NULL;
+    mccr_device_t *device = NULL;
+    unsigned int   v;
 
-    /* Enumerate all HID devices with the expected VID */
-    devs = hid_enumerate (MAGTEK_VID, 0x0);
-    if (!devs) {
-        mccr_log ("couldn't enumerate HID devices");
-        return NULL;
-    }
+    for (v = 0; !device && (v < (sizeof (supported_vids) / sizeof (supported_vids[0]))); v++) {
+        struct hid_device_info *devs, *cur_dev;
 
-    /* Create the devices, one per HID info */
-    for (cur_dev = devs; cur_dev; cur_dev = cur_dev->next) {
-        if (!path || strcmp (cur_dev->path, path) == 0) {
-            device = device_new (cur_dev);
-            break;
+        /* Enumerate all HID devices with the expected VID */
+        devs = hid_enumerate (supported_vids[v], 0x0);
+        if (!devs) {
+            mccr_log ("no HID devices with vid 0x%04x", supported_vids[v]);
+            continue;
         }
+
+        for (cur_dev = devs; cur_dev; cur_dev = cur_dev->next) {
+            if (!path || strcmp (cur_dev->path, path) == 0) {
+                device = device_new (cur_dev);
+                break;
+            }
+        }
+
+        hid_free_enumeration (devs);
     }
-    hid_free_enumeration (devs);
 
     return device;
 }
